@@ -1,0 +1,64 @@
+/*
+    Spacing mixins: margins
+*/
+@mixin my($val) {
+    margin-top: $val;
+    margin-bottom: $val;
+}
+
+@mixin mx($val) {
+    margin-left: $val;
+    margin-right: $val;
+}
+
+
+
+/*
+    Spacing mixins: paddings
+*/
+@mixin py($val) {
+    padding-top: $val;
+    padding-bottom: $val;
+}
+
+@mixin px($val) {
+    padding-left: $val;
+    padding-right: $val;
+}
+
+
+
+/*
+    Typography mixins
+*/
+@mixin headings-commons() {
+    font-family: $font_family2;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0px;
+}
+
+@mixin hero-berry() {
+    font-family: $font_family2;
+    font-weight: 600;
+    line-height: 1;
+    color: $color_black2;
+}
+
+@mixin text-huge() {
+    font-size: 14vw;
+}
+
+@mixin text-hero3() {
+    font-size: 7vw;
+}
+
+
+
+/*
+    Layout mixins
+*/
+@mixin container() {
+    max-width: $container_width;
+    margin: 0px auto;
+}

@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;500;600;700;900&family=Righteous&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+    @include headings-commons();
+}
+
+h1 {
+    font-size: remCalc(62);
+}
+
+h2 {
+    font-size: remCalc(48);
+}
+
+h3 {
+    font-size: remCalc(36);
+}
+
+h4, h5, h6 {
+    font-size: remCalc(28);
+}
+
