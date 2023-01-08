@@ -1,5 +1,5 @@
-@import '../global/1-settings';
-@import '../global/2-mixins';
+@import '../global2/1-settings';
+@import '../global2/2-mixins';
 
 .article {
     @include container();
@@ -9,42 +9,40 @@
     @media (min-width: 768px) {
         padding-top: 0px;
     }
-    
+
     @media (min-width: 1024px) {
         text-align: left;
     }
 }
 
-
-
 /*
     hero
 */
-.hero  {
+.hero {
     position: relative;
     width: 100%;
 
     @media (min-width: 1024px) {
         display: grid;
-        grid-template-columns: repeat(6,minmax(0,1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 2rem;
         @include py($space_45xl);
     }
 
     &__image {
         width: 100%;
-        
+
         @media (min-width: 1024px) {
             grid-column: 1 / span 1;
         }
     }
-    
+
     &__text {
         @media (min-width: 1024px) {
             grid-column: 2 / span 5;
         }
     }
-    
+
     &__title {
         position: relative;
         overflow: hidden;
@@ -55,27 +53,25 @@
             @include text-hero3();
         }
     }
-    
+
     &__introDescription {
         margin-top: 2rem;
     }
 }
-
-
 
 /*
     intro
 */
 .intro {
     position: relative;
-    
+
     @media (min-width: 768px) {
         @include py($space_35xl);
     }
-    
+
     @media (min-width: 1024px) {
         display: grid;
-        grid-template-columns: repeat(6,minmax(0,1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 2rem;
     }
 
@@ -86,17 +82,15 @@
     }
 }
 
-
-
 /*
     tech
 */
 .tech {
     position: relative;
-    
+
     @media (min-width: 1024px) {
         display: grid;
-        grid-template-columns: repeat(6,minmax(0,1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 2rem;
         @include py($space_35xl);
     }
@@ -108,8 +102,6 @@
     }
 }
 
-
-
 /*
     next
 */
@@ -118,11 +110,10 @@
 
     @media (min-width: 1024px) {
         display: grid;
-        grid-template-columns: repeat(6,minmax(0,1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 2rem;
         @include py($space_35xl);
     }
-
 
     &__text {
         @media (min-width: 1024px) {

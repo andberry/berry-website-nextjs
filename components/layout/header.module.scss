@@ -1,8 +1,0 @@
-@import '../../styles/global/1-settings';
-@import '../../styles/global/2-mixins';
-
-.main {
-    background: black;
-    color: white;
-    @include py($space_m);
-}
