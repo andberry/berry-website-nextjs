@@ -142,9 +142,9 @@ export default function Homepage() {
                         </p>
                     </Text>
 
-                    <section className="py-12 u-container mx-auto max-w-screen-lg">
+                    <section className="py-12 u-container mx-auto max-w-screen-md">
                         <div className="py-12">
-                            <h2 className="leading-none uppercase font-thin text-2xl u-text-gradientbg inline-block mb-6">
+                            <h2 className="leading-none text-center uppercase font-thin text-2xl u-text-gradientbg mb-6">
                                 What I used on a daily basis
                             </h2>
                             <div className="flex flex-wrap gap-12 justify-center text-5xl">
@@ -166,7 +166,7 @@ export default function Homepage() {
                             </div>
                         </div>
                         <div className="py-12">
-                            <h2 className="leading-none uppercase font-thin text-2xl mb-3 u-text-gradientbg inline-block mb-6">
+                            <h2 className="leading-none text-center uppercase font-thin text-2xl u-text-gradientbg mb-6">
                                 What I use less frequently
                             </h2>
                             <div className="flex flex-wrap gap-12 justify-center text-5xl">
@@ -201,7 +201,7 @@ export default function Homepage() {
                     <Text contentPosition="left" title="Plans for the future?">
                         <p>
                             Rocket hands-on experience with Jamstack ecostystem,
-                            I'd love to learn Remix and Svelte.
+                            I&apos;d love to learn Remix and Svelte.
                         </p>
                     </Text>
                 </article>

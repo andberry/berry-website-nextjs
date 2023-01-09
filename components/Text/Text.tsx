@@ -18,10 +18,12 @@ export const Text = ({
             className={classnames(
                 'c-text',
                 'relative',
-                'font-exo2 font-normal text-xl leading-10',
+                'font-exo2 font-normal text-xl leading-8 xl:leading-10',
                 'mx-auto max-w-screen-2xl px-5',
-                'md:py-24',
-                'lg:grid lg:grid-cols-8 lg:gap-8 lg:py-28'
+                'py-6',
+                'md:py-12',
+                'lg:grid lg:grid-cols-8 lg:gap-8 lg:py-20',
+                'xl:py-24'
             )}>
             <div
                 className={classnames(
