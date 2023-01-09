@@ -8,7 +8,7 @@ export interface IProps {
 
 export default function Layout({ children }: IProps) {
     return (
-        <div className="bg-lime">
+        <div>
             <Header />
             <main id="page-main">{children}</main>
             <Footer />

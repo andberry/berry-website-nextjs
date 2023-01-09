@@ -12,7 +12,7 @@ export default function Header() {
             className={classnames(
                 'fixed top-0 left-0 w-full h-16 z-40',
                 'flex items-center justify-between',
-                'px-8 py-2 lg:py-0',
+                'u-container py-2 lg:py-0',
                 'bg-black0 text-white text-sm'
             )}>
             <div className="flex items-center">
@@ -46,7 +46,7 @@ export default function Header() {
                                     className={classnames(
                                         'p-2',
                                         'text-3xl md:text-4xl lg:text-base font-normal uppercase',
-                                        'hover:text-lime'
+                                        'hover:text-purple'
                                     )}>
                                     {item.title}
                                 </Link>

@@ -3,18 +3,25 @@ import styles from './Text.module.css';
 import React from 'react';
 
 interface Iprops {
+    title?: string;
     children: React.ReactElement;
     contentPosition?: 'left' | 'center' | 'right';
 }
 
-export const Text = ({ children, contentPosition = 'center' }: Iprops) => {
+export const Text = ({
+    title,
+    children,
+    contentPosition = 'center',
+}: Iprops) => {
     return (
         <section
             className={classnames(
                 'c-text',
-                'mx-auto max-w-screen-2xl',
-                'lg:grid lg:grid-cols-8 lg:gap-8 md:py-24 relative',
-                'font-mulish font-extralight text-xl leading-10'
+                'relative',
+                'font-exo2 font-normal text-xl leading-10',
+                'mx-auto max-w-screen-2xl px-5',
+                'md:py-24',
+                'lg:grid lg:grid-cols-8 lg:gap-8 lg:py-28'
             )}>
             <div
                 className={classnames(
@@ -31,6 +38,11 @@ export const Text = ({ children, contentPosition = 'center' }: Iprops) => {
                             contentPosition === 'right',
                     }
                 )}>
+                {title && (
+                    <h2 className="leading-none uppercase font-black text-2xl mb-3 u-text-gradientbg inline-block">
+                        {title}
+                    </h2>
+                )}
                 {children}
             </div>
         </section>

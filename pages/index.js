@@ -2,8 +2,42 @@ import Head from 'next/head';
 import Layout from '../components/layout/layout';
 import { Text } from '../components/Text/Text';
 import ImageBerry from '../public/assets/images/berry.jpg';
+import ImageBerryTwitter from '../public/assets/images/berry_twitter.jpg';
 import Image from 'next/image';
 import classNames from 'classnames';
+import {
+    SiTypescript,
+    SiJavascript,
+    SiVisualstudiocode,
+    SiHtml5,
+    SiCss3,
+    SiGit,
+    SiTailwindcss,
+    SiJira,
+    SiTrello,
+    SiStorybook,
+    SiGulp,
+    SiLinux,
+    SiNuxtdotjs,
+    SiVuedotjs,
+    SiEleventy,
+    SiStatamic,
+    SiCraftcms,
+    SiVagrant,
+    SiDocker,
+} from 'react-icons/si';
+import { TbBrandNextjs, TbBrandSass } from 'react-icons/tb';
+import {
+    DiApple,
+    DiDjango,
+    DiDrupal,
+    DiWordpress,
+    DiPhp,
+    DiReact,
+    DiPython,
+    DiBootstrap,
+    DiUikit,
+} from 'react-icons/di';
 
 export default function Homepage() {
     return (
@@ -21,15 +55,19 @@ export default function Homepage() {
                 <article className="bg-black0 text-white shadow-purple shadow-sm">
                     <section
                         className={classNames(
-                            'font-righteou',
-                            'mx-auto max-w-screen-2xl',
+                            'mx-auto max-w-screen-2xl u-container',
                             'relative',
-                            'md:min-h-screen md:flex md:items-center md:py-32'
+                            'min-h-screen flex items-center md:py-32'
                         )}>
                         <div className="lg:grid lg:grid-cols-6 lg:gap-8">
-                            <div className="w-full lg:col-start-1 lg:col-span-1">
+                            <div
+                                className={classNames(
+                                    'w-1/3 mx-auto md:w-1/4 lg:w-28 xl:w-36',
+                                    'py-12 lg:py-0',
+                                    'lg:col-start-1 lg:col-span-1'
+                                )}>
                                 <Image
-                                    src={ImageBerry}
+                                    src={ImageBerryTwitter}
                                     alt="Berry Image"
                                     className="rounded-full"
                                 />
@@ -37,13 +75,18 @@ export default function Homepage() {
 
                             <div className="lg:col-start-2 lg:col-span-5 relative">
                                 <h1 className="text-hero3 leading-[0.9] font-exo2 font-semibold">
-                                    <span className="relative z-30">Hi!</span>
-                                    <br />
+                                    <span className="relative z-30">Hi, </span>
                                     I&apos;m{' '}
-                                    <span className="u-text-gradientbg py-0 px-2">
-                                        Berry
+                                    <span className="u-text-gradientbg">
+                                        Berry!
                                     </span>
-                                    , and I love building web projects
+                                    <br />
+                                    I&apos;m a{' '}
+                                    <span className="u-text-gradientbg-2">
+                                        web developer
+                                    </span>
+                                    , and I love building usable and clean web
+                                    projects.
                                     {/*
                                     <div className="opacity-0 intro__text__mask absolute inset-0 bg-lime z-20 transform -translate-x-full"></div>
                                     <div className="intro__text__mask--2 absolute bottom-0 left-0 h-0 w-3 bg-lime300 z-30"></div>
@@ -53,11 +96,9 @@ export default function Homepage() {
                         </div>
                     </section>
 
-                    <Text contentPosition="right">
-                        <h2>
-                            Front-End Developer / Front-End Engineer / Web
-                            Developer
-                        </h2>
+                    <Text
+                        contentPosition="right"
+                        title="Front-End Developer | Front-End Engineer | Web Developer">
                         <p>
                             I&apos;m <strong>Andrea Berardi</strong>,
                             <br />
@@ -69,74 +110,98 @@ export default function Homepage() {
                             </strong>
                             <br />
                             with 10+ years of experience, currently located in
-                            Halifax, NS, Canada
+                            Halifax, NS, Canada.
                         </p>
 
                         <p>
                             <strong>I build websites</strong>
                             ,
                             <br /> and my main focus and experience is{' '}
-                            <strong>frontend development</strong>.
+                            <strong>Front-End development</strong>.
                         </p>
                     </Text>
 
-                    <Text contentPosition="left">
+                    <Text contentPosition="left" title="Tech skill">
                         <p>
                             Fallen in love years ago with{' '}
-                            <span className="text-violet800">
-                                Component-Based development
-                            </span>
-                            , I work with{' '}
-                            <span className="text-violet800 font-bold">
-                                CMS
-                            </span>{' '}
-                            like{' '}
-                            <span className="text-violet800">
-                                Drupal, Statamic
-                            </span>
-                            , WordPress, CraftCMS, SSG like Eleventy (11ty), and
-                            frontend frameworks like Next.js and Nuxt.js.
+                            <strong>Component-Based development</strong>, I work
+                            with frontend frameworks like{' '}
+                            <strong>Next.js</strong>, and <strong>CMS</strong>{' '}
+                            like Drupal, WordPress, Statamic, CraftCMS, SSG like
+                            Eleventy (11ty).
                         </p>
 
                         <p>
-                            Content structure and implementing pixel perfect{' '}
-                            <span className="text-violet800">
-                                responsive layouts
-                            </span>{' '}
-                            mastering{' '}
-                            <span className="text-violet800">CSS</span>,
-                            <span className="text-violet800">
-                                JavaScript (ES6+)
-                            </span>{' '}
-                            and using the latest right tool for the job are my
-                            daily bread and butter.
+                            Structuring content and implementing pixel perfect{' '}
+                            responsive layouts is my daily bread and butter.
                         </p>
 
                         <p>
                             Attention to details, UI usability, technical SEO
-                            best practices and a are good additions to my hard
-                            skills set.
+                            best practices are all included in my skills set.
                         </p>
                     </Text>
 
-                    <Text contentPosition="center">
-                        <p>
-                            <span className="text-violet800 font-bold">
-                                What am I doing right now?
-                            </span>
-                            <br />
-                            Currently having fun with Statamic, Eleventy and
-                            Next.js
-                        </p>
+                    <section className="py-12 u-container mx-auto max-w-screen-lg">
+                        <div className="py-12">
+                            <h2 className="leading-none uppercase font-thin text-2xl u-text-gradientbg inline-block mb-6">
+                                What I used on a daily basis
+                            </h2>
+                            <div className="flex flex-wrap gap-12 justify-center text-5xl">
+                                <SiHtml5 />
+                                <SiCss3 />
+                                <TbBrandSass />
+                                <SiTailwindcss />
+                                <SiJavascript />
+                                <SiTypescript />
+                                <TbBrandNextjs />
+                                <DiReact />
+                                <SiStorybook />
+                                <SiGit />
+                                <DiDrupal />
+                                <SiVisualstudiocode />
+                                <SiJira />
+                                <SiTrello />
+                                <DiApple />
+                            </div>
+                        </div>
+                        <div className="py-12">
+                            <h2 className="leading-none uppercase font-thin text-2xl mb-3 u-text-gradientbg inline-block mb-6">
+                                What I use less frequently
+                            </h2>
+                            <div className="flex flex-wrap gap-12 justify-center text-5xl">
+                                <DiPhp />
+                                <DiWordpress />
+                                <SiEleventy />
+                                <SiStatamic />
+                                <SiCraftcms />
+                                <DiUikit />
+                                <DiBootstrap />
+                                <SiVuedotjs />
+                                <SiNuxtdotjs />
+                                <DiPython />
+                                <DiDjango />
+                                <SiGulp />
+                                <SiDocker />
+                                <SiVagrant />
+                                <SiLinux />
+                            </div>
+                        </div>
+                    </section>
 
+                    <Text
+                        contentPosition="right"
+                        title="What am I doing right now?">
                         <p>
-                            <span className="text-violet800 font-bold">
-                                Plans for the future?
-                            </span>
-                            <br />
+                            Currently I&apos;m having fun with React and
+                            Storybook, working on a headless Next.js/Drupal
+                            project.
+                        </p>
+                    </Text>
+                    <Text contentPosition="left" title="Plans for the future?">
+                        <p>
                             Rocket hands-on experience with Jamstack ecostystem,
-                            data visualization with Chart.js, and deep dive into
-                            technical SEO are on the way.
+                            I'd love to learn Remix and Svelte.
                         </p>
                     </Text>
                 </article>
