@@ -6,12 +6,14 @@ interface Iprops {
     title?: string;
     children: React.ReactElement;
     contentPosition?: 'left' | 'center' | 'right';
+    extraClasses?: string;
 }
 
 export const Text = ({
     title,
     children,
     contentPosition = 'center',
+    extraClasses,
 }: Iprops) => {
     return (
         <section
@@ -23,7 +25,8 @@ export const Text = ({
                 'py-6',
                 'md:py-12',
                 'lg:grid lg:grid-cols-8 lg:gap-8 lg:py-20',
-                'xl:py-24'
+                'xl:py-24',
+                extraClasses
             )}>
             <div
                 className={classnames(

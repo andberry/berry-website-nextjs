@@ -66,15 +66,26 @@ export default function Homepage() {
                                     'py-12 lg:py-0',
                                     'lg:col-start-1 lg:col-span-1'
                                 )}>
+                                {/*
                                 <Image
                                     src={ImageBerryTwitter}
                                     alt="Berry Image"
                                     className="rounded-full"
                                 />
+                                */}
+                                <div className="font-baumans text-[12rem] leading-none">
+                                    B
+                                </div>
+                                <div className="font-galada text-[12rem] leading-none">
+                                    B
+                                </div>
+                                <div className="font-major text-[12rem] leading-none">
+                                    B
+                                </div>
                             </div>
 
                             <div className="lg:col-start-2 lg:col-span-5 relative">
-                                <h1 className="text-hero3 leading-[0.9] font-exo2 font-semibold">
+                                <h1 className="text-hero3 leading-[0.9] font-exo2 font-bold">
                                     <span className="relative z-30">Hi, </span>
                                     I&apos;m{' '}
                                     <span className="u-text-gradientbg">
@@ -98,7 +109,8 @@ export default function Homepage() {
 
                     <Text
                         contentPosition="right"
-                        title="Front-End Developer | Front-End Engineer | Web Developer">
+                        title="Front-End Developer | Front-End Engineer | Web Developer"
+                        extraClasses="!pt-0">
                         <p>
                             I&apos;m <strong>Andrea Berardi</strong>,
                             <br />
