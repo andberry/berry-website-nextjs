@@ -8,7 +8,7 @@ export const mainMenu = [
         title: 'Skills',
     },
     {
-        href: '/articles',
-        title: 'Articles',
+        href: '/blog',
+        title: 'Blog',
     },
 ];
