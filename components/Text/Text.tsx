@@ -41,9 +41,7 @@ export const Text = ({
                     }
                 )}>
                 {title && (
-                    <h2 className="leading-none uppercase font-black text-2xl mb-3 u-text-gradientbg inline-block">
-                        {title}
-                    </h2>
+                    <h2 className="u-fancy-title text-2xl  mb-3">{title}</h2>
                 )}
                 {children}
             </div>

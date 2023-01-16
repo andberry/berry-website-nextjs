@@ -74,7 +74,7 @@ export default function Homepage() {
                             </div>
 
                             <div className="lg:col-start-2 lg:col-span-5 relative">
-                                <h1 className="text-hero3 leading-[0.9] font-exo2 font-semibold">
+                                <p className="u-big-title">
                                     <span className="relative z-30">Hi, </span>
                                     I&apos;m{' '}
                                     <span className="u-text-gradientbg">
@@ -91,7 +91,7 @@ export default function Homepage() {
                                     <div className="opacity-0 intro__text__mask absolute inset-0 bg-lime z-20 transform -translate-x-full"></div>
                                     <div className="intro__text__mask--2 absolute bottom-0 left-0 h-0 w-3 bg-lime300 z-30"></div>
                                     */}
-                                </h1>
+                                </p>
                             </div>
                         </div>
                     </section>
