@@ -7,10 +7,10 @@
 @layer base {
     body {
         /*
-        @apply font-exo2;
         @apply font-extralight;
-        */
         @apply font-mulish;
+        */
+        @apply font-exo2;
     }
     a {
         @apply transition-all;
@@ -118,5 +118,13 @@
         background-position: top center;
         background-repeat: no-repeat;
         -webkit-text-fill-color: transparent;
+    }
+
+    .u-fancy-title {
+        @apply leading-none uppercase font-black u-text-gradientbg inline-block;
+    }
+
+    .u-big-title {
+        @apply text-hero3 leading-[0.9] font-exo2 font-semibold;
     }
 }
