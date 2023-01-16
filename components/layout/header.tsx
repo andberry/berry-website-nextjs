@@ -45,7 +45,7 @@ export default function Header() {
                                     href={item.href}
                                     className={classnames(
                                         'p-2',
-                                        'text-3xl md:text-4xl lg:text-base font-normal uppercase',
+                                        'text-3xl md:text-4xl lg:text-lg font-bold uppercase font-exo2',
                                         'hover:text-purple'
                                     )}>
                                     {item.title}
