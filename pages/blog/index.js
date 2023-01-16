@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { HiOutlineArrowNarrowRight as ArrowIcon } from 'react-icons/hi';
 import classNames from 'classnames';
 
-function Blog({ posts }) {
+function BlogIndex({ posts }) {
     return (
         <Layout>
             <article className="bg-black0 text-white">
