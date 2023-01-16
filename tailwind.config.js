@@ -37,5 +37,8 @@ module.exports = {
             position: ['bottom', 'right'],
         },
     },
-    plugins: [require('tailwindcss-debug-screens')],
+    plugins: [
+        require('tailwindcss-debug-screens'),
+        require('@tailwindcss/typography'),
+    ],
 };

@@ -28,10 +28,10 @@ function BlogIndex({ posts }) {
 
                             <time
                                 dateTime={post.dateMachine}
-                                className="block text-sm pt-1 pb-6">
+                                className="block text-sm mt-1">
                                 {post.date}
                             </time>
-                            <div className="text-xl font-mulish">
+                            <div className="text-xl font-mulish mt-6">
                                 {post.abstract}
                             </div>
                             <div className="flex justify-between items-start mt-8">
