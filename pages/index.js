@@ -165,7 +165,7 @@ export default function Homepage() {
 
                     <section className="py-12 u-container mx-auto max-w-screen-md">
                         <div className="py-12">
-                            <FancyTitle className="text-center text-2xl mb-6">
+                            <FancyTitle className="text-center text-2xl mb-8">
                                 What I used on a daily basis
                             </FancyTitle>
                             <div className="flex flex-wrap gap-12 justify-center">
@@ -220,7 +220,7 @@ export default function Homepage() {
                             </div>
                         </div>
                         <div className="py-12">
-                            <FancyTitle className="text-center text-2xl mb-6">
+                            <FancyTitle className="text-center text-2xl mb-8">
                                 What I use less frequently
                             </FancyTitle>
                             <div className="flex flex-wrap gap-12 justify-center">
