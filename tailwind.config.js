@@ -17,6 +17,7 @@ module.exports = {
             lg: '1024px',
             xl: '1280px',
             '2xl': '1440px',
+            '3xl': '1680px',
         },
         fontFamily: {
             exo2: ['"Exo 2"', 'sans-serif'],
@@ -25,7 +26,10 @@ module.exports = {
         },
         colors: {
             white: '#FFFFFF',
+            white2: '#CCC',
             black0: '#000000',
+            black: '#1a1a1a',
+            black2: '#333',
             purple: '#7e2fdb',
             lime: '#acff3e',
         },
@@ -37,5 +41,8 @@ module.exports = {
             position: ['bottom', 'right'],
         },
     },
-    plugins: [require('tailwindcss-debug-screens')],
+    plugins: [
+        require('tailwindcss-debug-screens'),
+        require('@tailwindcss/typography'),
+    ],
 };
