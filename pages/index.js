@@ -75,11 +75,22 @@ export default function Homepage() {
                                     'py-12 lg:py-0',
                                     'lg:col-start-1 lg:col-span-1'
                                 )}>
+                                {/*
                                 <Image
                                     src={ImageBerryTwitter}
                                     alt="Berry Image"
                                     className="rounded-full"
                                 />
+                                */}
+                                <div className="font-baumans text-[12rem] leading-none">
+                                    B
+                                </div>
+                                <div className="font-galada text-[12rem] leading-none">
+                                    B
+                                </div>
+                                <div className="font-major text-[12rem] leading-none">
+                                    B
+                                </div>
                             </div>
 
                             <div className="lg:col-start-2 lg:col-span-5 relative">
@@ -107,7 +118,8 @@ export default function Homepage() {
 
                     <Text
                         contentPosition="right"
-                        title="Front-End Developer | Front-End Engineer | Web Developer">
+                        title="Front-End Developer | Front-End Engineer | Web Developer"
+                        extraClasses="!pt-0">
                         <p>
                             I&apos;m <strong>Andrea Berardi</strong>,
                             <br />
@@ -153,7 +165,7 @@ export default function Homepage() {
 
                     <section className="py-12 u-container mx-auto max-w-screen-md">
                         <div className="py-12">
-                            <FancyTitle className="text-center text-2xl mb-6">
+                            <FancyTitle className="text-center text-2xl mb-8">
                                 What I used on a daily basis
                             </FancyTitle>
                             <div className="flex flex-wrap gap-12 justify-center">
@@ -208,7 +220,7 @@ export default function Homepage() {
                             </div>
                         </div>
                         <div className="py-12">
-                            <FancyTitle className="text-center text-2xl mb-6">
+                            <FancyTitle className="text-center text-2xl mb-8">
                                 What I use less frequently
                             </FancyTitle>
                             <div className="flex flex-wrap gap-12 justify-center">

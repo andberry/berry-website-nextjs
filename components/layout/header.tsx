@@ -16,13 +16,24 @@ export default function Header() {
                 'bg-black0 text-white text-sm'
             )}>
             <div className="flex items-center">
-                <div className="lg:mr-4 relative z-40 w-10 lg:w-12">
+                <div className="lg:mr-4 relative z-40">
                     <Link href="/">
+                        <span className="font-baumans text-[3rem] leading-none">
+                            B
+                        </span>
+                        <span className="font-galada text-[3rem] leading-none">
+                            B
+                        </span>
+                        <span className="font-major text-[3rem] leading-none">
+                            B
+                        </span>
+                        {/*
                         <Image
                             src={ImageBerryTwitter}
                             alt="Berry picture"
                             className="rounded-full"
                         />
+                        */}
                     </Link>
                 </div>
 

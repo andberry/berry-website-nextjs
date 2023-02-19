@@ -23,6 +23,9 @@ module.exports = {
             exo2: ['"Exo 2"', 'sans-serif'],
             fontmono: ['"Courier Prime"', 'monospace'],
             mulish: ['Mulish', 'sans-serif'],
+            baumans: ['Baumans', 'cursive'],
+            galada: ['Galada', 'cursive'],
+            major: ['Major Mono Display', 'monospace'],
         },
         colors: {
             white: '#FFFFFF',
