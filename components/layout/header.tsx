@@ -30,8 +30,7 @@ export default function Header() {
                     id="main-menu"
                     className={classnames(
                         'fixed inset-0 lg:static z-40',
-                        'flex items-center',
-                        'bg-black lg:bg-transparent'
+                        'flex items-center'
                     )}>
                     <ul
                         className={classnames(
@@ -45,7 +44,7 @@ export default function Header() {
                                     href={item.href}
                                     className={classnames(
                                         'p-2',
-                                        'text-3xl md:text-4xl lg:text-lg font-bold uppercase font-exo2',
+                                        'text-3xl md:text-4xl lg:text-lg font-light uppercase font-exo2',
                                         'hover:text-purple'
                                     )}>
                                     {item.title}

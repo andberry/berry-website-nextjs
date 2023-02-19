@@ -5,8 +5,11 @@ createdAt: 20200912
 createdAtDisplay: 'September 12, 2020'
 published: true
 tags: ['cms']
+heroImage: 'garda2.jpg'
 ---
+
 ## Get the Content
+
 <pre><code class="php">
 // Get the content of the current post
 $content = apply_filters('the_content', get_the_content());
@@ -16,7 +19,9 @@ $content = apply_filters('the_content', get_post_field('post_content', $post_id)
 </code></pre>
 
 ## Working with images
+
 In WordPress images are entities with id and data attached to them.
+
 <pre><code class="php">
 // get post thumbnail src (using 'full' as image size)
 $post_thumb_src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full')[0];
@@ -37,10 +42,10 @@ $post_thumb_description = get_post($get_post_thumbnail_id())->post_content;
 $post_thumb_title = get_the_title(get_post_thumbnail_id());
 </code></pre>
 
-
-
 ## Add style select to WordPress editor
+
 Sometimes it's very useful to add a select widget to the WordPress allowing authors to choose from custom styles (classes) to be applied to selected text (eg. button, text-style, headings classes, etc.).
+
 <pre><code class="php">
 // 1) Reveal the hidden "Styles" dropdown in the advanced toolbar.
 function berry_mce_buttons_2( $buttons ) {

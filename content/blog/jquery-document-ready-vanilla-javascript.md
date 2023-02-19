@@ -1,23 +1,26 @@
 ---
 title: 'jQuery $(document).ready() in vanilla JavaScript'
-abstract: "How to replace the must used jQuery method with vanilla JavaScript"
+abstract: 'How to replace the must used jQuery method with vanilla JavaScript'
 createdAt: 20210804
 createdAtDisplay: 'August 04, 2021'
 published: true
+heroImage: 'ottawa-bridge.jpg'
 ---
+
 **jQuery's $(document).ready()** method allows us to safely run code only once **the DOM is loaded and parsed**.
 
 Not to be confused with **$( window ).on( "load")**, to be used if we want to run code only if the **whole page content (DOM, and assets as well) is loaded** in the browser.
 
 We can achieve the same result with vanilla js and Web APIs, in particular using:
 
-- Window: DOMContentLoaded event
-- document.readyState
+-   Window: DOMContentLoaded event
+-   document.readyState
 
 The tricky part is considering that when the browser runs our code it may have already loaded and parsed the DOM, so the best practice is to first check the document.readyState variable.
 
 Here is the code:
 <code><pre class="javascript">
+
 ```
 /*
     https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event
@@ -42,7 +45,7 @@ if (document.readyState === 'loading') {
     doOnDocumentLoaded();
 }
 ```
-</pre></code>
 
+</pre></code>
 
 [And here is my gist](https://gist.github.com/andberry/c6995034eb85e04b141b6a7746ed63a1)

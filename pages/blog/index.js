@@ -6,46 +6,72 @@ import Link from 'next/link';
 // import { HiArrowCircleRight as ArrowIcon } from 'react-icons/hi';
 import { HiOutlineArrowNarrowRight as ArrowIcon } from 'react-icons/hi';
 import classNames from 'classnames';
+import { Tag } from '../../components/Tag/Tag';
+import { HeroTitle } from '../../components/typography/HeroTitle';
+import Image from 'next/image';
 
 function BlogIndex({ posts }) {
     return (
         <Layout>
-            <article className="bg-black0 text-white">
-                <header className="u-container max-w-screen-md mx-auto py-16 md:py-28">
-                    <h1 className="u-big-title">
+            <article className="bg-black text-white">
+                <header className="u-container max-w-screen-xl mx-auto py-16 md:py-28">
+                    <HeroTitle>
                         Berry&apos;s{' '}
                         <span className="u-text-gradientbg-2">Blog</span>
-                    </h1>
+                    </HeroTitle>
                 </header>
-                <div className="u-container max-w-screen-md mx-auto pb-16">
+                <div
+                    className={classNames(
+                        'u-container max-w-screen-xl mx-auto pb-16',
+                        'md:grid md:grid-cols-2 md:gap-x-12 md:gap-y-24',
+                        'lg:grid lg:grid-cols-3 lg:gap-x-12',
+                        'xl:gap-x-16'
+                    )}>
                     {posts.map((post, index) => (
-                        <article key={index} className="py-20">
-                            <Link href={post.url} className="block">
-                                <h2 className="u-fancy-title text-4xl">
-                                    {post.title}
-                                </h2>
-                            </Link>
+                        <article
+                            key={index}
+                            className="pb-24 md:pb-0 flex flex-col justify-between">
+                            <div className="group">
+                                {post.heroImage && (
+                                    <Link href={post.url} className="group">
+                                        <div
+                                            className={classNames(
+                                                'relative aspect-video rounded-md overflow-hidden',
+                                                'duration-200 transition-all ease-linear'
+                                            )}>
+                                            <Image
+                                                src={`${settings.blog.heroBasedir}/${post.heroImage}`}
+                                                alt=""
+                                                fill
+                                                className="object-cover object-center"
+                                                sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                                            />
+                                        </div>
+                                    </Link>
+                                )}
 
-                            <time
-                                dateTime={post.dateMachine}
-                                className="block text-sm mt-1">
-                                {post.date}
-                            </time>
-                            <div className="text-xl font-mulish mt-6">
-                                {post.abstract}
+                                <Link href={post.url} className="group">
+                                    <h2 className="u-fancy-tile mt-2 text-2xl font-medium leading-none">
+                                        {post.title}
+                                    </h2>
+                                </Link>
+
+                                <time
+                                    dateTime={post.dateMachine}
+                                    className="block text-xs mt-1">
+                                    {post.date}
+                                </time>
+                                <div className="mt-6 font-thin">
+                                    {post.abstract}
+                                </div>
                             </div>
-                            <div className="flex justify-between items-start mt-8">
+
+                            <div className="flex justify-between items-center mt-4">
                                 {post.tags && (
                                     <div className="flex gap-2">
                                         {post.tags.map((tag, index) => (
-                                            <div
-                                                key={index}
-                                                className={classNames(
-                                                    'flex items-center',
-                                                    'text-sm leading-tight text-center text-white',
-                                                    'bg-purple px-2 py-1 rounded-sm'
-                                                )}>
-                                                {tag}
+                                            <div key={index}>
+                                                <Tag tag={tag} />
                                             </div>
                                         ))}
                                     </div>
@@ -81,6 +107,7 @@ export async function getStaticProps() {
         posts.push({
             url: `${settings.blog.baseUrl}/${postSlug}`,
             title: data.title,
+            heroImage: data.heroImage ? data.heroImage : null,
             date: data.createdAtDisplay,
             dateMachine: `${data.createdAt
                 .toString()

@@ -5,6 +5,7 @@ createdAt: 20200901
 createdAtDisplay: 'September 1, 2020'
 published: true
 tags: ['css']
+heroImage: 'garda4.jpg'
 ---
 
 As usual, as web developers, we have different ways to do the same thing, and centering items is a topic we face on daily basis. Fortunately we've moved from the prehistoric age of tables and float and today we can easily get support from standardized useful technologies that dramatically simplifies our job.

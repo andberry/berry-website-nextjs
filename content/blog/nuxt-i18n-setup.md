@@ -1,12 +1,15 @@
 ---
-title: "Multilanguage website with Nuxt.js"
+title: 'Multilanguage website with Nuxt.js'
 abstract: 'Guide to setup Nuxt.js with nuxt-i18n module to have a website translated in 4 languages'
 createdAt: 20201025
 createdAtDisplay: 'October 25, 2020'
 published: true
 tags: [javascript]
+heroImage: 'montreal-skyline-winter.jpg'
 ---
+
 ## Summary
+
 1. Install nuxt-i18n module
 2. Edit nuxt.config.js
 3. Create translation content folders structure
@@ -16,17 +19,16 @@ tags: [javascript]
 7. Multilanguage links
 8. Language switcher
 
-
-
 ## 1. Install nuxt-i18n module
+
 <pre><code class="bash">
 npm install -P nuxt-i18n
 </code></pre>
 
-
-
 ## 2. Edit nuxt.config.js
+
 Add and configure the module in the 'modules' section of yout nuxt.config.js. You can find all the options and documentation [here](https://i18n.nuxtjs.org/options-reference).
+
 <pre><code class="json">
 modules: [
     ...
@@ -79,19 +81,18 @@ modules: [
 ]
 </code></pre>
 
-
-
 ## 3. Create translation content folders structure
+
 The folder **'assets/content/'** will contain all translated content of the website.
 
 For each language we'll have:
-- a global/common set of translation strings (menu, header, footer, socials, common content)
-- a specific translation file for every page in this website.
-- content will be added in json files
 
-
+-   a global/common set of translation strings (menu, header, footer, socials, common content)
+-   a specific translation file for every page in this website.
+-   content will be added in json files
 
 ### Folders creation
+
 1. Create 'assets/content' folder
 2. For each language create the relative language folder inside it:
     1. 'assets/content/en'
@@ -100,16 +101,17 @@ For each language we'll have:
     4. 'assets/content/es'
 
 Inside each language folder there will be:
+
 1. the common lang file(en/en.js, it/it.js, de/de.js, es/es.js)
 2. the 'parts' folder that will contain a file foreach page of the project and that will be reference inside the components .vue files.
 
-
-
 ## 4. Translate global content
+
 Option 1: Inside the common translation files of each lang directly write the json containing translations.
 You can use a plain key:value structure or organize strings in objects.
 
 Example of 'en/en.js' file:
+
 <pre><code class="json">
 {
     "social-vimeo-url": "https://vimeo.com/berry",
@@ -126,6 +128,7 @@ Example of 'en/en.js' file:
 </code></pre>
 
 Option 2: Inside the common translation files of each lang (es. en/en.js) import tranlation content from other json files
+
 <pre><code class="javascript">
 import commonContent from './parts/common.json'
 import socialsContent from './parts/socials.json'
@@ -136,12 +139,12 @@ export default {
 }
 </code></pre>
 
-
-
 ## 5. Translate pages content
+
 Create one file for each page in your project and reference it in the **'i18n'** section of your .vue files, as follow:
 
 Example of page-homepage.json:
+
 <pre><code class="json">
 {
     "meta-title": "Berry meta title",
@@ -164,6 +167,7 @@ Example of page-homepage.json:
 </code></pre>
 
 load translations inside index.vue:
+
 <pre><code class="javascript">
 ...
 i18n: {
@@ -177,10 +181,10 @@ i18n: {
 ...
 </code></pre>
 
-
-
 ## 6. Use translation strings
+
 Inside **&lt;template&gt;** section of .vue file:
+
 <pre><code class="html">
 &lt;div class="intro"&gt;
     &lt;div class="intro__title">{{ $t('intro.title ')}}&lt;/div&gt;
@@ -189,6 +193,7 @@ Inside **&lt;template&gt;** section of .vue file:
 </code></pre>
 
 Inside **data** function in **&lt;script&gt;** section of .vue file:
+
 <pre><code class="javascript">
 hero: {
     src: 'super-hero.jpg',
@@ -196,12 +201,12 @@ hero: {
 }
 </code></pre>
 
-
-
 ## 7. Multilanguage links
+
 Now, inside the project, every internal link should have multilang href.
 
 So, replace this:
+
 <pre><code class="html">
 &lt;nuxt-link to="products-product1"&gt;
     {{ $t('products.product1.linktext') }}
@@ -209,16 +214,17 @@ So, replace this:
 </code></pre>
 
 with this:
+
 <pre><code class="html">
 &lt;nuxt-link :to="localePath('products-product1')"&gt;
     {{ $t('products.product1.linktext') }}
 &lt;/nuxt-link&gt;
 </code></pre>
 
-
-
 ## 8. Language switcher
+
 This is a simple implementation of a language switcher
+
 <pre><code class="html">
 &lt;template&gt;
     &lt;nav id="header__langs-menu"&gt;

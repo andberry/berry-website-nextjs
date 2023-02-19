@@ -5,7 +5,9 @@ createdAt: 20201120
 createdAtDisplay: 'November 20, 2020'
 published: true
 tags: ['javascript']
+heroImage: 'ottawa-rideau.jpg'
 ---
+
 Vue.js is an outstanding library we can use to build complex frontend UI and/or apps, but it can also be used to implement small features even if we're working with a legacy/old project.
 
 Imaging a page (eg. built from a CMS) with a list of documents and we want to give the user the power of a search feature.
@@ -17,6 +19,7 @@ Imaging a page (eg. built from a CMS) with a list of documents and we want to gi
 3. Add a couple of methods to improve the accessibility (**handleClickOnBody** and **handleKeyUp**)
 
 This is the final JavaScript code:
+
 <pre><code class="js">
 var searchApp = new Vue({
 	el: "#searchapp",

@@ -1,9 +1,12 @@
 import Head from 'next/head';
 import Layout from '../components/layout/layout';
 import { Text } from '../components/Text/Text';
+import { HeroTitle } from '../components/typography/HeroTitle';
 import ImageBerry from '../public/assets/images/berry.jpg';
 import ImageBerryTwitter from '../public/assets/images/berry_twitter.jpg';
+import { FancyTitle } from '../components/typography/FancyTitle';
 import Image from 'next/image';
+import { TechIcon } from '../components/TechIcon/TechIcon';
 import classNames from 'classnames';
 import {
     SiTypescript,
@@ -25,6 +28,11 @@ import {
     SiCraftcms,
     SiVagrant,
     SiDocker,
+    SiNotion,
+    SiFigma,
+    SiAdobexd,
+    SiSlack,
+    SiGreensock,
 } from 'react-icons/si';
 import { TbBrandNextjs, TbBrandSass } from 'react-icons/tb';
 import {
@@ -37,6 +45,7 @@ import {
     DiPython,
     DiBootstrap,
     DiUikit,
+    DiTerminal,
 } from 'react-icons/di';
 
 export default function Homepage() {
@@ -74,7 +83,7 @@ export default function Homepage() {
                             </div>
 
                             <div className="lg:col-start-2 lg:col-span-5 relative">
-                                <p className="u-big-title">
+                                <HeroTitle>
                                     <span className="relative z-30">Hi, </span>
                                     I&apos;m{' '}
                                     <span className="u-text-gradientbg">
@@ -91,7 +100,7 @@ export default function Homepage() {
                                     <div className="opacity-0 intro__text__mask absolute inset-0 bg-lime z-20 transform -translate-x-full"></div>
                                     <div className="intro__text__mask--2 absolute bottom-0 left-0 h-0 w-3 bg-lime300 z-30"></div>
                                     */}
-                                </p>
+                                </HeroTitle>
                             </div>
                         </div>
                     </section>
@@ -144,47 +153,106 @@ export default function Homepage() {
 
                     <section className="py-12 u-container mx-auto max-w-screen-md">
                         <div className="py-12">
-                            <h2 className="leading-none text-center uppercase font-thin text-2xl u-text-gradientbg mb-6">
+                            <FancyTitle className="text-center text-2xl mb-6">
                                 What I used on a daily basis
-                            </h2>
-                            <div className="flex flex-wrap gap-12 justify-center text-5xl">
-                                <SiHtml5 />
-                                <SiCss3 />
-                                <TbBrandSass />
-                                <SiTailwindcss />
-                                <SiJavascript />
-                                <SiTypescript />
-                                <TbBrandNextjs />
-                                <DiReact />
-                                <SiStorybook />
-                                <SiGit />
-                                <DiDrupal />
-                                <SiVisualstudiocode />
-                                <SiJira />
-                                <SiTrello />
-                                <DiApple />
+                            </FancyTitle>
+                            <div className="flex flex-wrap gap-12 justify-center">
+                                {/*
+                                <TechIcon Icon={SiHtml5} text="HTML5" />
+                                <TechIcon Icon={SiCss3} text="CSS3" />
+                                */}
+                                <TechIcon
+                                    Icon={TbBrandNextjs}
+                                    text="Next.js"></TechIcon>
+                                <TechIcon
+                                    Icon={DiReact}
+                                    text="React"></TechIcon>
+                                <TechIcon
+                                    Icon={SiStorybook}
+                                    text="Storybook"></TechIcon>
+                                <TechIcon
+                                    Icon={SiJavascript}
+                                    text="JavaScript"></TechIcon>
+                                <TechIcon
+                                    Icon={SiTypescript}
+                                    text="TypeScript"></TechIcon>
+
+                                <TechIcon
+                                    Icon={SiTailwindcss}
+                                    text="TailwindCSS"
+                                />
+                                <TechIcon Icon={TbBrandSass} text="Sass" />
+
+                                <TechIcon
+                                    Icon={DiDrupal}
+                                    text="Drupal"></TechIcon>
+                                <TechIcon
+                                    Icon={SiDocker}
+                                    text="DDEV"></TechIcon>
+                                <TechIcon Icon={SiGit} text="Git"></TechIcon>
+                                <TechIcon
+                                    Icon={DiTerminal}
+                                    text="CMDline"></TechIcon>
+                                <TechIcon
+                                    Icon={SiVisualstudiocode}
+                                    text="VS Code"></TechIcon>
+                                <TechIcon Icon={SiJira} text="Jira"></TechIcon>
+                                <TechIcon
+                                    Icon={SiTrello}
+                                    text="Trello"></TechIcon>
+                                <TechIcon Icon={SiNotion} text="Notion" />
+                                <TechIcon Icon={SiSlack} text="Slack" />
+                                <TechIcon Icon={SiFigma} text="Figma" />
+                                <TechIcon Icon={DiApple} text="MacOS" />
+                                {/* <DiApple /> */}
                             </div>
                         </div>
                         <div className="py-12">
-                            <h2 className="leading-none text-center uppercase font-thin text-2xl u-text-gradientbg mb-6">
+                            <FancyTitle className="text-center text-2xl mb-6">
                                 What I use less frequently
-                            </h2>
-                            <div className="flex flex-wrap gap-12 justify-center text-5xl">
-                                <DiPhp />
-                                <DiWordpress />
-                                <SiEleventy />
-                                <SiStatamic />
-                                <SiCraftcms />
-                                <DiUikit />
-                                <DiBootstrap />
-                                <SiVuedotjs />
-                                <SiNuxtdotjs />
-                                <DiPython />
-                                <DiDjango />
-                                <SiGulp />
-                                <SiDocker />
-                                <SiVagrant />
-                                <SiLinux />
+                            </FancyTitle>
+                            <div className="flex flex-wrap gap-12 justify-center">
+                                <TechIcon Icon={DiPhp} text="PHP"></TechIcon>
+                                <TechIcon
+                                    Icon={DiWordpress}
+                                    text="WordPress"></TechIcon>
+                                <TechIcon
+                                    Icon={SiEleventy}
+                                    text="Eleventy"></TechIcon>
+                                <TechIcon
+                                    Icon={SiStatamic}
+                                    text="Statamic"></TechIcon>
+                                <TechIcon
+                                    Icon={SiCraftcms}
+                                    text="CraftCMS"></TechIcon>
+                                <TechIcon
+                                    Icon={DiUikit}
+                                    text="UIkit"></TechIcon>
+                                <TechIcon Icon={SiGreensock} text="GSAP" />
+                                <TechIcon
+                                    Icon={DiBootstrap}
+                                    text="Bootstrap"></TechIcon>
+                                <TechIcon
+                                    Icon={SiVuedotjs}
+                                    text="Vue.js"></TechIcon>
+                                <TechIcon
+                                    Icon={SiNuxtdotjs}
+                                    text="Nuxt"></TechIcon>
+                                <TechIcon
+                                    Icon={DiPython}
+                                    text="Python"></TechIcon>
+                                <TechIcon
+                                    Icon={DiDjango}
+                                    text="Django"></TechIcon>
+                                {/*<TechIcon Icon={SiGulp} text="Gulp"></TechIcon>*/}
+
+                                <TechIcon
+                                    Icon={SiVagrant}
+                                    text="Vagrant"></TechIcon>
+                                <TechIcon Icon={SiAdobexd} text="Adobe XD" />
+                                <TechIcon
+                                    Icon={SiLinux}
+                                    text="Linux"></TechIcon>
                             </div>
                         </div>
                     </section>
