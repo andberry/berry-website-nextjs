@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import styles from './Text.module.css';
 import React from 'react';
+import { FancyTitle } from '../typography/FancyTitle';
 
 interface Iprops {
     title?: string;
@@ -44,9 +45,11 @@ export const Text = ({
                     }
                 )}>
                 {title && (
-                    <h2 className="leading-none uppercase font-black text-2xl mb-3 u-text-gradientbg inline-block">
-                        {title}
-                    </h2>
+                    <div>
+                        <FancyTitle className="text-3xl mb-3">
+                            {title}
+                        </FancyTitle>
+                    </div>
                 )}
                 {children}
             </div>

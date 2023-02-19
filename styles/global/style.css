@@ -8,10 +8,10 @@
 @layer base {
     body {
         /*
-        @apply font-exo2;
         @apply font-extralight;
-        */
         @apply font-mulish;
+        */
+        @apply font-exo2;
     }
     a {
         @apply transition-all;
@@ -32,8 +32,7 @@
 
 @layer utilities {
     .u-container {
-        @apply px-5;
-        @apply md:px-8;
+        @apply px-8;
     }
     /*
     .u-bg-gradient {
@@ -119,5 +118,13 @@
         background-position: top center;
         background-repeat: no-repeat;
         -webkit-text-fill-color: transparent;
+    }
+
+    .u-fancy-title {
+        @apply leading-none uppercase font-black u-text-gradientbg inline-block;
+    }
+
+    .u-text-shadow {
+        text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
     }
 }
