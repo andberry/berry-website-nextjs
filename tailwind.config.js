@@ -7,7 +7,7 @@ module.exports = {
     theme: {
         extend: {
             fontSize: {
-                hero3: 'clamp(2.5rem, 7vw, 6.5rem)',
+                hero3: 'clamp(2.5rem, 7vw, 7rem)',
                 huge: '14vw',
             },
         },
@@ -23,6 +23,9 @@ module.exports = {
             exo2: ['"Exo 2"', 'sans-serif'],
             fontmono: ['"Courier Prime"', 'monospace'],
             mulish: ['Mulish', 'sans-serif'],
+            baumans: ['Baumans', 'cursive'],
+            galada: ['Galada', 'cursive'],
+            major: ['Major Mono Display', 'monospace'],
         },
         colors: {
             white: '#FFFFFF',

@@ -15,7 +15,7 @@ export const HeroTitle = <C extends React.ElementType>({
     return (
         <Tag
             className={classNames(
-                'text-hero3 leading-[0.9] font-exo2 font-semibold',
+                'text-hero3 leading-[0.85] font-exo2 font-semibold',
                 className
             )}
             {...rest}>

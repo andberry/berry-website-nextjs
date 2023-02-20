@@ -10,9 +10,7 @@ export default function Layout({ children }: IProps) {
     return (
         <div>
             <Header />
-            <main id="page-main" className="pt-16">
-                {children}
-            </main>
+            <main id="page-main">{children}</main>
             <Footer />
         </div>
     );
