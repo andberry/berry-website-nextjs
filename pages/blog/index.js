@@ -10,6 +10,7 @@ import { Tag } from '../../components/Tag/Tag';
 import { HeroTitle } from '../../components/typography/HeroTitle';
 import Image from 'next/image';
 import { Container } from '../../components/Container';
+import { BlogCard } from '../../components/BlogCard/BlogCard';
 
 function BlogIndex({ posts }) {
     return (
@@ -35,72 +36,7 @@ function BlogIndex({ posts }) {
                                 'xl:gap-x-16'
                             )}>
                             {posts.map((post, index) => (
-                                <article
-                                    key={index}
-                                    className="pb-24 md:pb-0 flex flex-col justify-between">
-                                    <div className="group">
-                                        {post.heroImage && (
-                                            <Link
-                                                href={post.url}
-                                                className="group">
-                                                <div
-                                                    className={classNames(
-                                                        'relative aspect-video rounded-md overflow-hidden',
-                                                        'duration-200 transition-all ease-linear'
-                                                    )}>
-                                                    <Image
-                                                        src={`${settings.blog.heroBasedir}/${post.heroImage}`}
-                                                        alt=""
-                                                        fill
-                                                        className="object-cover object-center"
-                                                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                                                    />
-                                                </div>
-                                            </Link>
-                                        )}
-
-                                        <Link href={post.url} className="group">
-                                            <h2 className="u-fancy-tile mt-2 text-3xl font-medium leading-none">
-                                                {post.title}
-                                            </h2>
-                                        </Link>
-
-                                        {/*
-                                <time
-                                    dateTime={post.dateMachine}
-                                    className="block text-xs mt-1">
-                                    {post.date}
-                                </time>
-                                
-                                <div className="mt-6 font-thin">
-                                    {post.abstract}
-                                </div>
-                                */}
-                                    </div>
-
-                                    <div className="flex justify-between items-center mt-6">
-                                        {post.tags && (
-                                            <div className="flex gap-2">
-                                                {post.tags.map((tag, index) => (
-                                                    <div key={index}>
-                                                        <Tag tag={tag} />
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )}
-                                        <Link
-                                            href={post.url}
-                                            className="flex items-center gap-2 group py-2 px-2">
-                                            <span>Read the Post</span>
-                                            <ArrowIcon
-                                                className={classNames(
-                                                    'relative top-[2px] text-xl',
-                                                    'group-hover:translate-x-1 ease-outsine transition-all'
-                                                )}
-                                            />
-                                        </Link>
-                                    </div>
-                                </article>
+                                <BlogCard post={post} key={index} />
                             ))}
                         </div>
                     </Container>
