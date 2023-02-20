@@ -10,7 +10,7 @@ export function Tag({ tag }: ITag) {
             className={classNames(
                 'flex items-center',
                 'text-sm leading-tight text-center text-white',
-                'bg-purple px-2 py-1 rounded-sm'
+                'bg-black2 text-white2 px-2 py-1 rounded-sm'
             )}>
             {tag}
         </div>

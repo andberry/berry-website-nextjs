@@ -19,9 +19,7 @@ function BlogPost({ post }) {
                         className={classNames(
                             'u-container',
                             'max-w-screen-xl mx-auto',
-                            'pt-8 pb-4',
-                            'md:pt-10 md:pb-6',
-                            'lg:pt-16',
+                            'pt-32 pb-8 2xl:pt-48 text-white',
                             'u-text-shadow'
                         )}>
                         <HeroTitle className="text-white">
