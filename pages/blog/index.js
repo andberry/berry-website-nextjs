@@ -9,87 +9,101 @@ import classNames from 'classnames';
 import { Tag } from '../../components/Tag/Tag';
 import { HeroTitle } from '../../components/typography/HeroTitle';
 import Image from 'next/image';
+import { Container } from '../../components/Container';
 
 function BlogIndex({ posts }) {
     return (
         <Layout>
-            <article className="bg-black text-white">
-                <header className="u-container max-w-screen-xl mx-auto py-16 md:py-28">
-                    <HeroTitle>
-                        Berry&apos;s{' '}
-                        <span className="u-text-gradientbg-2">Blog</span>
-                    </HeroTitle>
-                </header>
-                <div
+            <article className="bg-black0 text-white2">
+                <header
                     className={classNames(
-                        'u-container max-w-screen-xl mx-auto pb-16',
-                        'md:grid md:grid-cols-2 md:gap-x-12 md:gap-y-24',
-                        'lg:grid lg:grid-cols-3 lg:gap-x-12',
-                        'xl:gap-x-16'
+                        'pt-32 pb-16 2xl:pt-48 2xl:pb-24 text-white'
                     )}>
-                    {posts.map((post, index) => (
-                        <article
-                            key={index}
-                            className="pb-24 md:pb-0 flex flex-col justify-between">
-                            <div className="group">
-                                {post.heroImage && (
-                                    <Link href={post.url} className="group">
-                                        <div
-                                            className={classNames(
-                                                'relative aspect-video rounded-md overflow-hidden',
-                                                'duration-200 transition-all ease-linear'
-                                            )}>
-                                            <Image
-                                                src={`${settings.blog.heroBasedir}/${post.heroImage}`}
-                                                alt=""
-                                                fill
-                                                className="object-cover object-center"
-                                                sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                                            />
-                                        </div>
-                                    </Link>
-                                )}
+                    <Container>
+                        <HeroTitle>
+                            Berry&apos;s{' '}
+                            <span className="u-text-gradientbg-2">Blog</span>
+                        </HeroTitle>
+                    </Container>
+                </header>
+                <div className={classNames('pb-16')}>
+                    <Container>
+                        <div
+                            className={classNames(
+                                'md:grid md:grid-cols-2 md:gap-x-12 md:gap-y-24',
+                                'lg:grid lg:grid-cols-3 lg:gap-x-12',
+                                'xl:gap-x-16'
+                            )}>
+                            {posts.map((post, index) => (
+                                <article
+                                    key={index}
+                                    className="pb-24 md:pb-0 flex flex-col justify-between">
+                                    <div className="group">
+                                        {post.heroImage && (
+                                            <Link
+                                                href={post.url}
+                                                className="group">
+                                                <div
+                                                    className={classNames(
+                                                        'relative aspect-video rounded-md overflow-hidden',
+                                                        'duration-200 transition-all ease-linear'
+                                                    )}>
+                                                    <Image
+                                                        src={`${settings.blog.heroBasedir}/${post.heroImage}`}
+                                                        alt=""
+                                                        fill
+                                                        className="object-cover object-center"
+                                                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                                                    />
+                                                </div>
+                                            </Link>
+                                        )}
 
-                                <Link href={post.url} className="group">
-                                    <h2 className="u-fancy-tile mt-2 text-2xl font-medium leading-none">
-                                        {post.title}
-                                    </h2>
-                                </Link>
+                                        <Link href={post.url} className="group">
+                                            <h2 className="u-fancy-tile mt-2 text-3xl font-medium leading-none">
+                                                {post.title}
+                                            </h2>
+                                        </Link>
 
+                                        {/*
                                 <time
                                     dateTime={post.dateMachine}
                                     className="block text-xs mt-1">
                                     {post.date}
                                 </time>
+                                
                                 <div className="mt-6 font-thin">
                                     {post.abstract}
                                 </div>
-                            </div>
-
-                            <div className="flex justify-between items-center mt-4">
-                                {post.tags && (
-                                    <div className="flex gap-2">
-                                        {post.tags.map((tag, index) => (
-                                            <div key={index}>
-                                                <Tag tag={tag} />
-                                            </div>
-                                        ))}
+                                */}
                                     </div>
-                                )}
-                                <Link
-                                    href={post.url}
-                                    className="flex items-center gap-2 group py-2 px-2">
-                                    <span>Read the Post</span>
-                                    <ArrowIcon
-                                        className={classNames(
-                                            'relative top-[2px] text-xl',
-                                            'group-hover:translate-x-1 ease-outsine transition-all'
+
+                                    <div className="flex justify-between items-center mt-6">
+                                        {post.tags && (
+                                            <div className="flex gap-2">
+                                                {post.tags.map((tag, index) => (
+                                                    <div key={index}>
+                                                        <Tag tag={tag} />
+                                                    </div>
+                                                ))}
+                                            </div>
                                         )}
-                                    />
-                                </Link>
-                            </div>
-                        </article>
-                    ))}
+                                        <Link
+                                            href={post.url}
+                                            className="flex items-center gap-2 group py-2 px-2">
+                                            <span>Read the Post</span>
+                                            <ArrowIcon
+                                                className={classNames(
+                                                    'relative top-[2px] text-xl',
+                                                    'group-hover:translate-x-1 ease-outsine transition-all'
+                                                )}
+                                            />
+                                        </Link>
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
+                    </Container>
                 </div>
             </article>
         </Layout>
