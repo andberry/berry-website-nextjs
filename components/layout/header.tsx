@@ -5,104 +5,116 @@ import classnames from 'classnames';
 import { mainMenu } from '../../data/mainMenu';
 import { links } from '../../data/links';
 import { IconContext } from 'react-icons';
+import { Container } from '../Container';
 
 export default function Header() {
     return (
         <header
             className={classnames(
-                'fixed top-0 left-0 w-full h-16 z-40',
-                'flex items-center justify-between',
-                'u-container py-2 lg:py-0',
+                'fixed top-0 left-0 w-full z-40',
+                'py-2 lg:py-0',
                 'bg-black0 text-white text-sm'
             )}>
-            <div className="flex items-center">
-                <div className="lg:mr-4 relative z-40">
-                    <Link href="/">
+            <Container>
+                <div
+                    className={classnames(
+                        'flex items-center justify-between h-16'
+                    )}>
+                    <div className="flex items-center">
+                        <div className="lg:mr-4">
+                            <Link href="/" className="block">
+                                {/*
                         <span className="font-baumans text-[3rem] leading-none">
-                            B
-                        </span>
-                        <span className="font-galada text-[3rem] leading-none">
                             B
                         </span>
                         <span className="font-major text-[3rem] leading-none">
                             B
                         </span>
-                        {/*
+                        */}
+                                <span className="font-galada text-[3rem] leading-none relative top-[5px]">
+                                    B
+                                </span>
+
+                                {/*
                         <Image
                             src={ImageBerryTwitter}
                             alt="Berry picture"
                             className="rounded-full"
                         />
                         */}
-                    </Link>
-                </div>
+                            </Link>
+                        </div>
 
-                <nav
-                    id="main-menu"
-                    className={classnames(
-                        'fixed inset-0 lg:static z-40',
-                        'flex items-center'
-                    )}>
-                    <ul
-                        className={classnames(
-                            'lg:flex w-full',
-                            'text-center lg:text-left text-lg lg:text-base',
-                            'hidden lg:block'
-                        )}>
-                        {mainMenu.map((item, index) => (
-                            <li key={index} className="py-4 lg:py-0 lg:px-2">
-                                <Link
-                                    href={item.href}
-                                    className={classnames(
-                                        'p-2',
-                                        'text-3xl md:text-4xl lg:text-lg font-light uppercase font-exo2',
-                                        'hover:text-purple'
-                                    )}>
-                                    {item.title}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-            </div>
+                        <nav
+                            id="main-menu"
+                            className={classnames(
+                                'fixed inset-0 lg:static',
+                                'flex items-center'
+                            )}>
+                            <ul
+                                className={classnames(
+                                    'lg:flex w-full',
+                                    'text-center lg:text-left text-lg lg:text-base',
+                                    'hidden lg:block'
+                                )}>
+                                {mainMenu.map((item, index) => (
+                                    <li
+                                        key={index}
+                                        className="py-4 lg:py-0 lg:px-0">
+                                        <Link
+                                            href={item.href}
+                                            className={classnames(
+                                                'py-2 px-6',
+                                                'text-3xl md:text-4xl lg:text-lg font-light uppercase font-exo2',
+                                                'hover:text-purple'
+                                            )}>
+                                            {item.title}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+                    </div>
 
-            <div className="relative z-40">
-                <div className="hidden lg:flex lg:items-center gap-4">
-                    <IconContext.Provider value={{ size: '1.6rem' }}>
-                        {links.map((item, index) => {
-                            const Icon = item.icon;
-                            return (
-                                <div key={index}>
-                                    <Link
-                                        href={item.link}
-                                        className={classnames(
-                                            'p-1 block text-white',
-                                            'hover:text-lime'
-                                        )}>
-                                        <Icon />
-                                    </Link>
-                                </div>
-                            );
-                        })}
-                    </IconContext.Provider>
-                </div>
+                    <div className="relative z-40">
+                        <div className="hidden lg:flex lg:items-center gap-4">
+                            <IconContext.Provider value={{ size: '1.6rem' }}>
+                                {links.map((item, index) => {
+                                    const Icon = item.icon;
+                                    return (
+                                        <div key={index}>
+                                            <Link
+                                                href={item.link}
+                                                className={classnames(
+                                                    'py-1 px-2 block text-white',
+                                                    'hover:text-lime'
+                                                )}>
+                                                <Icon />
+                                            </Link>
+                                        </div>
+                                    );
+                                })}
+                            </IconContext.Provider>
+                        </div>
 
-                <div className="block w-8 lg:hidden">
-                    <div className="mobile-menu-toggle">
-                        <button
-                            data-v-onclick="toggleMobileMenu"
-                            className="block">
-                            <div
-                                id="hamb-menu"
-                                className="hamb w-8 h-6 flex flex-col justify-between overflow-hidden">
-                                <div className="hamb__item bg-white"></div>
-                                <div className="hamb__item bg-white"></div>
-                                <div className="hamb__item bg-white"></div>
+                        <div className="block w-8 lg:hidden">
+                            <div className="mobile-menu-toggle">
+                                <button
+                                    data-v-onclick="toggleMobileMenu"
+                                    className="block">
+                                    <div
+                                        id="hamb-menu"
+                                        className="hamb w-8 h-6 flex flex-col justify-between overflow-hidden">
+                                        <div className="hamb__item bg-white"></div>
+                                        <div className="hamb__item bg-white"></div>
+                                        <div className="hamb__item bg-white"></div>
+                                    </div>
+                                </button>
                             </div>
-                        </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Container>
         </header>
     );
 }
