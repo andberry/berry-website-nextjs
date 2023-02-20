@@ -7,7 +7,7 @@ module.exports = {
     theme: {
         extend: {
             fontSize: {
-                hero3: 'clamp(2.5rem, 7vw, 6.5rem)',
+                hero3: 'clamp(2.5rem, 7vw, 7rem)',
                 huge: '14vw',
             },
         },
