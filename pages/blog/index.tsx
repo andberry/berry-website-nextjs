@@ -60,14 +60,22 @@ export async function getStaticProps() {
         const { data } = matter(
             fs.readFileSync(`${settings.blog.contentDir}/${file}`)
         );
-        console.log(data);
+
+        // skip unpublished posts
+        if (!data.published) {
+            continue;
+        }
+
+        // generate placeholder image
         let placeholder = undefined;
-        try {
-            placeholder = await getPlaiceholder(
-                `${settings.blog.heroBasedir}/${data.heroImage}`
-            );
-        } catch (error) {
-            console.log('Error generating base64 placeholder: ', error);
+        if (data.heroImage) {
+            try {
+                placeholder = await getPlaiceholder(
+                    `${settings.blog.heroBasedir}/${data.heroImage}`
+                );
+            } catch (error) {
+                console.log('Error generating base64 placeholder: ', error);
+            }
         }
 
         posts.push({
@@ -85,9 +93,7 @@ export async function getStaticProps() {
 
     return {
         props: {
-            posts: posts
-                .filter((post) => post.published === true)
-                .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1)),
+            posts: posts.sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1)),
         },
     };
 }

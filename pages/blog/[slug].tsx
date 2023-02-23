@@ -7,13 +7,15 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Tag } from '../../components/Tag/Tag';
-import { HiOutlineArrowNarrowLeft as ArrowIcon } from 'react-icons/hi';
+
 import { HeroTitle } from '../../components/typography/HeroTitle';
 import { getPlaiceholder } from 'plaiceholder';
 import { getSemanticHtmlDate } from '../../utils/blog';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { BlogPostDate } from '../../components/BlogPostDate';
+import { motion, Variant } from 'framer-motion';
+import { ArrowButton } from '../../components/ArrowButton';
 
 interface IBlogPagePost {
     title: string;
@@ -48,7 +50,7 @@ function BlogPage({ post }: IBlogPage) {
                         <BlogPostDate
                             dateTime={post.semanticHtmlDate}
                             displayDate={post.date}
-                            className="inline-block mt-3 text-sm"
+                            className="mt-4"
                         />
                     </div>
                     {post.heroImage && (
@@ -106,7 +108,7 @@ function BlogPage({ post }: IBlogPage) {
                             <BlogPostDate
                                 dateTime={post.semanticHtmlDate}
                                 displayDate={post.date}
-                                className="inline-block mt-3 text-sm"
+                                className="mt-2"
                             />
 
                             {post.tags && (
@@ -118,14 +120,30 @@ function BlogPage({ post }: IBlogPage) {
                                     ))}
                                 </div>
                             )}
-                            <Link
-                                href={settings.blog.baseUrl}
-                                className="mt-8 inline-block">
-                                <span className="flex gap-2 items-center">
-                                    <ArrowIcon />
-                                    Back to Blog Index
-                                </span>
-                            </Link>
+                            {/*
+                            <motion.button
+                                className="mt-8 border border-lime px-4 py-2"
+                                variants={motionVariantsCta}
+                                whileHover="hover">
+                                <Link
+                                    href={settings.blog.baseUrl}
+                                    className="inline-block">
+                                    <span className="flex gap-2 items-center">
+                                        <motion.span
+                                            variants={motionVariantsCtaArrow}>
+                                            <ArrowIcon />
+                                        </motion.span>
+                                        Back to Blog Index
+                                    </span>
+                                </Link>
+                            </motion.button>
+                            */}
+
+                            <ArrowButton
+                                arrowSide="left"
+                                url={settings.blog.baseUrl}
+                                text="Back to Blog Index"
+                            />
                         </div>
                     </div>
                 </div>
