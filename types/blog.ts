@@ -1,11 +1,10 @@
-export interface IBlogPost {
-    url: string;
+export interface BlogPost {
     title: string;
-    abstract: string;
+    abstract?: string;
     createdAt: string;
     createdAtDisplay: string;
     published: boolean;
-    tags?: string[];
+    tags: string[];
     heroImage: string;
     content: string;
 }

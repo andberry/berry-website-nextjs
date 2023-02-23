@@ -1,5 +1,3 @@
-import { ComponentPropsWithoutRef } from 'react';
-import { IBlogPost } from '../../utils/types';
 import { useState } from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
@@ -14,8 +12,21 @@ import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfigFile from '../../tailwind.config';
 const tailwindConfig: any = resolveConfig(tailwindConfigFile);
 
-interface IBlogCard extends ComponentPropsWithoutRef<'article'> {
-    post: IBlogPost;
+export interface IBlogCardPost {
+    url: string;
+    title: string;
+    abstract?: string;
+    createdAt: string;
+    createdAtDisplay: string;
+    semanticHtmlDate: string; // string to be used inside <time> element
+    published: boolean;
+    tags: string[];
+    heroImage: string;
+    heroImageBlurred: string;
+}
+
+interface IBlogCard {
+    post: IBlogCardPost;
 }
 
 const motionVariantsCard: { [key: string]: Variant } = {
@@ -33,8 +44,9 @@ const motionVariantsImage: { [key: string]: Variant } = {
         translateY: '-0.5rem',
         opacity: 1,
         transition: {
+            type: 'tween',
             duration: 0.5,
-            ease: easings.easeOutQuart,
+            ease: easings.easeOutCubic,
         },
     },
 };
@@ -63,7 +75,7 @@ const motionVariantsTitle: { [key: string]: Variant } = {
         transition: {
             duration: 0.3,
             ease: easings.easeOutQuart,
-            delay: 0.1,
+            delay: 0.05,
         },
     },
 };
@@ -75,7 +87,7 @@ const motionVariantsCta: { [key: string]: Variant } = {
         transition: {
             duration: 0.1,
             ease: 'linear',
-            delay: 0,
+            delay: 0.05,
         },
     },
 };
@@ -88,12 +100,12 @@ const motionVariantsCtaArrow: { [key: string]: Variant } = {
         transition: {
             duration: 0.3,
             ease: easings.easeOutQuart,
-            delay: 0,
+            delay: 0.05,
         },
     },
 };
 
-export const BlogCard = ({ post }: IBlogCard) => {
+export const BlogPostCard = ({ post }: IBlogCard) => {
     const [hoverOnCard, setHoverOnCard] = useState(false);
 
     return (
@@ -121,6 +133,8 @@ export const BlogCard = ({ post }: IBlogCard) => {
                                 fill
                                 className="object-cover object-center translate-y-"
                                 sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                                placeholder="blur"
+                                blurDataURL={post.heroImageBlurred}
                             />
                         </motion.div>
                     </div>

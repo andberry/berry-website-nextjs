@@ -1,18 +1,20 @@
 import { settings } from '../../data/settings';
 import Layout from '../../components/layout/layout';
 import fs from 'fs';
-import * as matter from 'gray-matter';
-import Link from 'next/link';
-// import { HiArrowCircleRight as ArrowIcon } from 'react-icons/hi';
-import { HiOutlineArrowNarrowRight as ArrowIcon } from 'react-icons/hi';
+import matter from 'gray-matter';
 import classNames from 'classnames';
-import { Tag } from '../../components/Tag/Tag';
 import { HeroTitle } from '../../components/typography/HeroTitle';
-import Image from 'next/image';
 import { Container } from '../../components/Container';
-import { BlogCard } from '../../components/BlogCard/BlogCard';
+import { BlogPostCard } from '../../components/BlogCard/BlogCard';
+import { getPlaiceholder } from 'plaiceholder';
+import { IBlogCardPost } from '../../components/BlogCard/BlogCard';
+import { getBlogPostAbsoluteUrl, getSemanticHtmlDate } from '../../utils/blog';
 
-function BlogIndex({ posts }) {
+interface IBlogIndex {
+    posts: IBlogCardPost[];
+}
+
+function BlogIndex({ posts }: IBlogIndex) {
     return (
         <Layout>
             <article className="bg-black0 text-white2">
@@ -22,8 +24,12 @@ function BlogIndex({ posts }) {
                     )}>
                     <Container>
                         <HeroTitle>
-                            Berry&apos;s{' '}
-                            <span className="u-text-gradientbg-2">Blog</span>
+                            <>
+                                Berry&apos;s{' '}
+                                <span className="u-text-gradientbg-2">
+                                    Blog
+                                </span>
+                            </>
                         </HeroTitle>
                     </Container>
                 </header>
@@ -36,7 +42,7 @@ function BlogIndex({ posts }) {
                                 'xl:gap-x-16'
                             )}>
                             {posts.map((post, index) => (
-                                <BlogCard post={post} key={index} />
+                                <BlogPostCard post={post} key={index} />
                             ))}
                         </div>
                     </Container>
@@ -47,26 +53,32 @@ function BlogIndex({ posts }) {
 }
 
 export async function getStaticProps() {
-    const posts = [];
+    const posts: IBlogCardPost[] = [];
     const files = fs.readdirSync(settings.blog.contentDir);
     for (const file of files) {
         const postSlug = file.replace('.md', '');
         const { data } = matter(
             fs.readFileSync(`${settings.blog.contentDir}/${file}`)
         );
+        console.log(data);
+        let placeholder = undefined;
+        try {
+            placeholder = await getPlaiceholder(
+                `${settings.blog.heroBasedir}/${data.heroImage}`
+            );
+        } catch (error) {
+            console.log('Error generating base64 placeholder: ', error);
+        }
+
         posts.push({
-            url: `${settings.blog.baseUrl}/${postSlug}`,
+            url: getBlogPostAbsoluteUrl(postSlug),
+            heroImage: data.heroImage,
+            heroImageBlurred: placeholder?.base64 ?? '',
             title: data.title,
-            heroImage: data.heroImage ? data.heroImage : null,
-            date: data.createdAtDisplay,
-            dateMachine: `${data.createdAt
-                .toString()
-                .slice(0, 4)}-${data.createdAt
-                .toString()
-                .slice(4, 6)}-${data.createdAt.toString().slice(6, 8)}`,
-            tags: data.tags ? data.tags : [],
-            sortDate: data.createdAt,
-            abstract: data.abstract,
+            semanticHtmlDate: getSemanticHtmlDate(data.createdAt),
+            createdAt: data.createdAt,
+            createdAtDisplay: data.createdAtDisplay,
+            tags: data.tags ?? [],
             published: data.published,
         });
     }
@@ -75,7 +87,7 @@ export async function getStaticProps() {
         props: {
             posts: posts
                 .filter((post) => post.published === true)
-                .sort((a, b) => (a.sortDate > b.sortDate ? -1 : 1)),
+                .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1)),
         },
     };
 }
