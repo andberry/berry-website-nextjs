@@ -4,6 +4,7 @@ abstract: 'How to replace the must used jQuery method with vanilla JavaScript'
 createdAt: 20210804
 createdAtDisplay: 'August 04, 2021'
 published: true
+tags: ['javascript']
 heroImage: 'ottawa-bridge.jpg'
 ---
 
