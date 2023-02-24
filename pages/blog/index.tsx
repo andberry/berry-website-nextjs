@@ -9,31 +9,21 @@ import { BlogPostCard } from '../../components/BlogCard/BlogCard';
 import { getPlaiceholder } from 'plaiceholder';
 import { IBlogCardPost } from '../../components/BlogCard/BlogCard';
 import { getBlogPostAbsoluteUrl, getSemanticHtmlDate } from '../../utils/blog';
+import { HeaderTitle } from '../../components/HeaderTitle';
 
 interface IBlogIndex {
     posts: IBlogCardPost[];
 }
 
-function BlogIndex({ posts }: IBlogIndex) {
+function BlogIndexPage({ posts }: IBlogIndex) {
     return (
         <Layout>
             <article className="bg-black0 text-white2">
-                <header
-                    className={classNames(
-                        'pt-32 pb-16 2xl:pt-48 2xl:pb-24 text-white'
-                    )}>
-                    <Container>
-                        <HeroTitle>
-                            <>
-                                Berry&apos;s{' '}
-                                <span className="u-text-gradientbg-2">
-                                    Blog
-                                </span>
-                            </>
-                        </HeroTitle>
-                    </Container>
-                </header>
-                <div className={classNames('pb-16')}>
+                <HeaderTitle>
+                    Berry&apos;s{' '}
+                    <span className="u-text-gradientbg-2">Blog</span>
+                </HeaderTitle>
+                <section className={classNames('pb-16')}>
                     <Container>
                         <div
                             className={classNames(
@@ -46,7 +36,7 @@ function BlogIndex({ posts }: IBlogIndex) {
                             ))}
                         </div>
                     </Container>
-                </div>
+                </section>
             </article>
         </Layout>
     );
@@ -98,4 +88,4 @@ export async function getStaticProps() {
     };
 }
 
-export default BlogIndex;
+export default BlogIndexPage;
