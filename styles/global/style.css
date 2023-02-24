@@ -22,6 +22,10 @@
     p {
         @apply mb-4;
     }
+
+    .c-page-blog__content :is(h1, h2, h3, h4, h5, h6):first-child {
+        @apply mt-0;
+    }
 }
 
 @layer components {
