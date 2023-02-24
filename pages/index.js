@@ -75,29 +75,15 @@ export default function Homepage() {
                             <div className="lg:grid lg:grid-cols-6 lg:gap-8">
                                 <div
                                     className={classNames(
-                                        'w-1/3 mx-auto',
-                                        'lg:w-full lg:px-2',
-                                        'py-12 lg:py-0',
+                                        'w-1/3 mx-auto py-12',
+                                        'lg:w-full lg:px-4 lg:py-0',
                                         'lg:col-start-1 lg:col-span-1'
                                     )}>
                                     <Image
                                         src={ImageBerryTwitter}
                                         alt="Berry Image"
-                                        className="rounded-full"
+                                        className="rounded-lg"
                                     />
-
-                                    {/*
-                                <div className="font-galada text-[12rem] leading-none">
-                                    B
-                                </div>
-
-                                <div className="font-baumans text-[12rem] leading-none">
-                                    B
-                                </div>
-                                <div className="font-major text-[12rem] leading-none">
-                                    B
-                                </div>
-                                */}
                                 </div>
 
                                 <div className="lg:col-start-2 lg:col-span-5 relative">
@@ -128,8 +114,7 @@ export default function Homepage() {
 
                     <Text
                         contentPosition="right"
-                        title="Front-End Developer | Front-End Engineer | Web Developer"
-                        dropcap="F">
+                        title="Front-End Developer | Front-End Engineer | Web Developer">
                         <p>
                             I&apos;m <strong>Andrea Berardi</strong>,
                             <br />
@@ -152,7 +137,7 @@ export default function Homepage() {
                         </p>
                     </Text>
 
-                    <Text contentPosition="left" title="Tech skill" dropcap="T">
+                    <Text contentPosition="left" title="Tech skill">
                         <p>
                             Fallen in love years ago with{' '}
                             <strong>Component-Based development</strong>, I work
@@ -173,6 +158,7 @@ export default function Homepage() {
                         </p>
                     </Text>
 
+                    {/*
                     <section className="py-12 text-white2">
                         <Container>
                             <div className="py-12 max-w-screen-md mx-auto">
@@ -180,10 +166,6 @@ export default function Homepage() {
                                     What I use on a daily basis
                                 </FancyTitle>
                                 <div className="flex flex-wrap gap-12 justify-center">
-                                    {/*
-                                <TechIcon Icon={SiHtml5} text="HTML5" />
-                                <TechIcon Icon={SiCss3} text="CSS3" />
-                                */}
                                     <TechIcon
                                         Icon={TbBrandNextjs}
                                         text="Next.js"></TechIcon>
@@ -194,7 +176,6 @@ export default function Homepage() {
                                         Icon={SiTailwindcss}
                                         text="TailwindCSS"
                                     />
-
                                     <TechIcon
                                         Icon={SiTypescript}
                                         text="TypeScript"></TechIcon>
@@ -206,6 +187,8 @@ export default function Homepage() {
                                         Icon={SiStorybook}
                                         text="Storybook"></TechIcon>
                                     <TechIcon Icon={SiFramer} text="Motion" />
+                                    <TechIcon Icon={SiHtml5} text="HTML5" />
+                                    <TechIcon Icon={SiCss3} text="CSS3" />
                                     <TechIcon Icon={TbBrandSass} text="Sass" />
 
                                     <TechIcon
@@ -233,7 +216,6 @@ export default function Homepage() {
                                     <TechIcon Icon={SiSlack} text="Slack" />
                                     <TechIcon Icon={SiFigma} text="Figma" />
                                     <TechIcon Icon={DiApple} text="MacOS" />
-                                    {/* <DiApple /> */}
                                 </div>
                             </div>
                             <div className="py-12 max-w-screen-md mx-auto">
@@ -275,8 +257,6 @@ export default function Homepage() {
                                     <TechIcon
                                         Icon={DiDjango}
                                         text="Django"></TechIcon>
-                                    {/*<TechIcon Icon={SiGulp} text="Gulp"></TechIcon>*/}
-
                                     <TechIcon
                                         Icon={SiVagrant}
                                         text="Vagrant"></TechIcon>
@@ -291,21 +271,18 @@ export default function Homepage() {
                             </div>
                         </Container>
                     </section>
+                                */}
 
                     <Text
-                        contentPosition="left"
-                        title="What am I working on right now?"
-                        dropcap="N">
+                        contentPosition="right"
+                        title="What am I working on right now?">
                         <p>
                             Currently having fun working on a pretty big
                             headless Next.js/Drupal project, using React,
                             Storybook, and Framer Motion.
                         </p>
                     </Text>
-                    <Text
-                        contentPosition="right"
-                        title="Plans for the future?"
-                        dropcap="F">
+                    <Text contentPosition="left" title="Plans for the future?">
                         <p>
                             Rocket hands-on experience with Jamstack ecostystem,
                             Remix, Svelte and Astro are on my way.

@@ -13,12 +13,10 @@ export function Tag({ tag, variant = 'default' }: ITag) {
                 'text-sm leading-tight text-center text-white',
                 'px-2 py-1 rounded-sm',
                 {
-                    'bg-black2 text-white2 px-2 py-1 rounded-sm':
-                        variant === 'default',
+                    'bg-black2 text-white2 px-2 py-1': variant === 'default',
                 },
                 {
-                    'bg-black text-white px-2 py-1 rounded-sm':
-                        variant === 'dark',
+                    'bg-black text-white px-2 py-1': variant === 'dark',
                 }
             )}>
             {tag}
