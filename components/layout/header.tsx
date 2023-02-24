@@ -21,27 +21,13 @@ export default function Header() {
                         'flex items-center justify-between h-16'
                     )}>
                     <div className="flex items-center">
-                        <div className="lg:mr-4">
-                            <Link href="/" className="block">
-                                {/*
-                        <span className="font-baumans text-[3rem] leading-none">
-                            B
-                        </span>
-                        <span className="font-major text-[3rem] leading-none">
-                            B
-                        </span>
-                        */}
-                                <span className="font-galada text-[3rem] leading-none relative top-[5px]">
-                                    B
-                                </span>
-
-                                {/*
-                        <Image
-                            src={ImageBerryTwitter}
-                            alt="Berry picture"
-                            className="rounded-full"
-                        />
-                        */}
+                        <div className="lg:mr-6">
+                            <Link href="/" className="block w-12">
+                                <Image
+                                    src={ImageBerryTwitter}
+                                    alt="Berry picture"
+                                    className="rounded-md"
+                                />
                             </Link>
                         </div>
 
