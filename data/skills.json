@@ -1,0 +1,80 @@
+[
+    {
+        "title": "Languages",
+        "skills": [
+            "Html5",
+            "CSS3, Sass/SCSS",
+            "JavaScript, TypeScript",
+            "PHP, Twig",
+            "Python"
+        ]
+    },
+    {
+        "title": "CSS",
+        "skills": [
+            "Tailwind CSS",
+            "CSS Modules",
+            "UIKit",
+            "Foundation",
+            "Bootstrap"
+        ]
+    },
+    {
+        "title": "JS",
+        "skills": [
+            "React",
+            "Next.js",
+            "Storybook",
+            "Framer Motion",
+            "Eleventy (11ty)",
+            "Vue.js",
+            "Nuxt",
+            "GSAP"
+        ]
+    },
+    {
+        "title": "PHP / Python",
+        "skills": ["Drupal", "WordPress", "CraftCMS", "Statamic", "Django"]
+    },
+    {
+        "title": "Best Practices",
+        "skills": [
+            "Component-based development",
+            "Responsive Web Design",
+            "CSS: BEM, ITCSS, Namespaces",
+            "Semantic HTML best practices",
+            "Basic Accessibility best practices",
+            "UI Usability best practices",
+            "Basic technical SEO best practices"
+        ]
+    },
+    {
+        "title": "Dev Tools",
+        "skills": [
+            "Git",
+            "DDEV",
+            "Lando",
+            "Vagrant / Homestead",
+            "gulp.js / rollup.js"
+        ]
+    },
+    {
+        "title": "DevOps / OS",
+        "skills": [
+            "macOS",
+            "Linux",
+            "Linux-based server setup",
+            "Internet network infrastructure and services (IP, DNS, Web, Email)"
+        ]
+    },
+    {
+        "title": "Soft Skills",
+        "skills": [
+            "Critical and creative thinker",
+            "Proactive approach",
+            "Team building and leadership attitude",
+            "Work independently or as part of a team",
+            "Never stop learning attitude"
+        ]
+    }
+]
