@@ -4,6 +4,8 @@ import { FancyTitle } from '../components/typography/FancyTitle';
 import Layout from '../components/layout/layout';
 import { HeaderTitle } from '../components/HeaderTitle';
 import { SkillsGroup } from '../components/SkillsGroup';
+import { useState } from 'react';
+import { motion, Variant } from 'framer-motion';
 import {
     SiTypescript,
     SiJavascript,
@@ -44,8 +46,23 @@ import {
     DiUikit,
     DiTerminal,
 } from 'react-icons/di';
+import { settings } from '../data/settings';
+import fs from 'node:fs';
+import { ISkillsData } from '../types/skills';
 
-export default function SkillsPage() {
+const motionVariantSection: { [key: string]: Variant } = {
+    hide: {},
+    show: {
+        transition: { staggerChildren: 0.1 },
+    },
+};
+
+export default function SkillsPage({
+    skillsData,
+}: {
+    skillsData: ISkillsData;
+}) {
+    const [skillsAreInViewport, setSkillsAreInViewport] = useState(false);
     return (
         <Layout>
             <article className="bg-black0 text-white">
@@ -53,97 +70,27 @@ export default function SkillsPage() {
                     <span className="u-text-gradientbg">Skills</span> and Tech
                 </HeaderTitle>
 
-                <section className="">
+                <motion.section
+                    viewport={{ amount: 0.5, margin: '0px 0px -200px 0px' }}
+                    onViewportEnter={() => setSkillsAreInViewport(true)}
+                    onViewportLeave={() => setSkillsAreInViewport(false)}
+                    variants={motionVariantSection}
+                    initial="hide"
+                    animate={skillsAreInViewport ? 'show' : 'hide'}
+                >
                     <Container>
                         <div className="md:grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-                            <SkillsGroup
-                                title="Languages"
-                                skills={[
-                                    'Html5',
-                                    'CSS3, Sass/SCSS',
-                                    'JavaScript, TypeScript',
-                                    'PHP, Twig',
-                                    'Python',
-                                ]}
-                            />
-                            <SkillsGroup
-                                title="CSS"
-                                skills={[
-                                    'Tailwind CSS',
-                                    'CSS Modules',
-                                    'UIKit',
-                                    'Foundation',
-                                    'Bootstrap',
-                                ]}
-                            />
-                            <SkillsGroup
-                                title="JS"
-                                skills={[
-                                    'React',
-                                    'Next.js',
-                                    'Storybook',
-                                    'Framer Motion',
-                                    'Eleventy (11ty)',
-                                    'Vue.js',
-                                    'Nuxt',
-                                    'GSAP',
-                                ]}
-                            />
-                            <SkillsGroup
-                                title="PHP / Python"
-                                skills={[
-                                    'Drupal',
-                                    'WordPress',
-                                    'CraftCMS',
-                                    'Statamic',
-                                    'Django',
-                                ]}
-                            />
-                            <SkillsGroup
-                                title="Best Practices"
-                                skills={[
-                                    'Component-based development',
-                                    'Responsive Web Design',
-                                    'CSS: BEM, ITCSS, Namespaces',
-                                    'Semantic HTML best practices',
-                                    'Basic Accessibility best practices',
-                                    'UI Usability best practices',
-                                    'Basic technical SEO best practices',
-                                ]}
-                            />
-                            <SkillsGroup
-                                title="Dev tools"
-                                skills={[
-                                    'Git',
-                                    'DDEV',
-                                    'Lando',
-                                    'Vagrant / Homestead',
-                                    'gulp.js / rollup.js',
-                                ]}
-                            />
-
-                            <SkillsGroup
-                                title="Devops / OS"
-                                skills={[
-                                    'macOS',
-                                    'Linux',
-                                    'Linux-based server setup',
-                                    'Internet network infrastructure and services (IP, DNS, Web, Email)',
-                                ]}
-                            />
-                            <SkillsGroup
-                                title="Soft Skills"
-                                skills={[
-                                    'Critical and creative thinker',
-                                    'Proactive approach',
-                                    'Team building and leadership attitude',
-                                    'Work independently or as part of a team',
-                                    'Never stop learning attitude',
-                                ]}
-                            />
+                            {skillsData.map((item, index) => (
+                                <SkillsGroup
+                                    key={index}
+                                    title={item.title}
+                                    skills={item.skills}
+                                    id={index}
+                                />
+                            ))}
                         </div>
                     </Container>
-                </section>
+                </motion.section>
 
                 <section className="py-4 xl:py-24 text-white2">
                     <Container>
@@ -154,24 +101,29 @@ export default function SkillsPage() {
                             <div className="flex flex-wrap gap-12 justify-center">
                                 <TechIcon
                                     Icon={TbBrandNextjs}
-                                    text="Next.js"></TechIcon>
+                                    text="Next.js"
+                                ></TechIcon>
                                 <TechIcon
                                     Icon={DiReact}
-                                    text="React"></TechIcon>
+                                    text="React"
+                                ></TechIcon>
                                 <TechIcon
                                     Icon={SiTailwindcss}
                                     text="TailwindCSS"
                                 />
                                 <TechIcon
                                     Icon={SiTypescript}
-                                    text="TypeScript"></TechIcon>
+                                    text="TypeScript"
+                                ></TechIcon>
                                 <TechIcon
                                     Icon={SiJavascript}
-                                    text="JavaScript"></TechIcon>
+                                    text="JavaScript"
+                                ></TechIcon>
 
                                 <TechIcon
                                     Icon={SiStorybook}
-                                    text="Storybook"></TechIcon>
+                                    text="Storybook"
+                                ></TechIcon>
                                 <TechIcon Icon={SiFramer} text="Motion" />
                                 <TechIcon Icon={SiHtml5} text="HTML5" />
                                 <TechIcon Icon={SiCss3} text="CSS3" />
@@ -179,21 +131,26 @@ export default function SkillsPage() {
 
                                 <TechIcon
                                     Icon={DiDrupal}
-                                    text="Drupal"></TechIcon>
+                                    text="Drupal"
+                                ></TechIcon>
                                 <TechIcon
                                     Icon={SiDocker}
-                                    text="DDEV"></TechIcon>
+                                    text="DDEV"
+                                ></TechIcon>
                                 <TechIcon Icon={SiGit} text="Git"></TechIcon>
                                 <TechIcon
                                     Icon={DiTerminal}
-                                    text="CMDline"></TechIcon>
+                                    text="CMDline"
+                                ></TechIcon>
                                 <TechIcon
                                     Icon={SiVisualstudiocode}
-                                    text="VS Code"></TechIcon>
+                                    text="VS Code"
+                                ></TechIcon>
                                 <TechIcon Icon={SiJira} text="Jira"></TechIcon>
                                 <TechIcon
                                     Icon={SiTrello}
-                                    text="Trello"></TechIcon>
+                                    text="Trello"
+                                ></TechIcon>
                                 <TechIcon Icon={SiNotion} text="Notion" />
                                 <TechIcon Icon={SiSlack} text="Slack" />
                                 <TechIcon Icon={SiFigma} text="Figma" />
@@ -207,44 +164,56 @@ export default function SkillsPage() {
                             <div className="flex flex-wrap gap-12 justify-center">
                                 <TechIcon
                                     Icon={SiEleventy}
-                                    text="Eleventy"></TechIcon>
+                                    text="Eleventy"
+                                ></TechIcon>
                                 <TechIcon Icon={DiPhp} text="PHP"></TechIcon>
                                 <TechIcon
                                     Icon={DiWordpress}
-                                    text="WordPress"></TechIcon>
+                                    text="WordPress"
+                                ></TechIcon>
 
                                 <TechIcon
                                     Icon={SiStatamic}
-                                    text="Statamic"></TechIcon>
+                                    text="Statamic"
+                                ></TechIcon>
                                 <TechIcon
                                     Icon={SiCraftcms}
-                                    text="CraftCMS"></TechIcon>
+                                    text="CraftCMS"
+                                ></TechIcon>
                                 <TechIcon
                                     Icon={DiUikit}
-                                    text="UIkit"></TechIcon>
+                                    text="UIkit"
+                                ></TechIcon>
                                 <TechIcon Icon={SiGreensock} text="GSAP" />
                                 <TechIcon
                                     Icon={DiBootstrap}
-                                    text="Bootstrap"></TechIcon>
+                                    text="Bootstrap"
+                                ></TechIcon>
                                 <TechIcon
                                     Icon={SiVuedotjs}
-                                    text="Vue.js"></TechIcon>
+                                    text="Vue.js"
+                                ></TechIcon>
                                 <TechIcon
                                     Icon={SiNuxtdotjs}
-                                    text="Nuxt"></TechIcon>
+                                    text="Nuxt"
+                                ></TechIcon>
                                 <TechIcon
                                     Icon={DiPython}
-                                    text="Python"></TechIcon>
+                                    text="Python"
+                                ></TechIcon>
                                 <TechIcon
                                     Icon={DiDjango}
-                                    text="Django"></TechIcon>
+                                    text="Django"
+                                ></TechIcon>
                                 <TechIcon
                                     Icon={SiVagrant}
-                                    text="Vagrant"></TechIcon>
+                                    text="Vagrant"
+                                ></TechIcon>
                                 <TechIcon Icon={SiAdobexd} text="Adobe XD" />
                                 <TechIcon
                                     Icon={SiLinux}
-                                    text="Linux"></TechIcon>
+                                    text="Linux"
+                                ></TechIcon>
                             </div>
                         </div>
                     </Container>
@@ -252,4 +221,15 @@ export default function SkillsPage() {
             </article>
         </Layout>
     );
+}
+
+export async function getStaticProps() {
+    const fileContent = fs.readFileSync(settings.skills.dataFile, {
+        encoding: 'utf8',
+    });
+    return {
+        props: {
+            skillsData: JSON.parse(fileContent),
+        },
+    };
 }

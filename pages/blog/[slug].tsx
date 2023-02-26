@@ -31,7 +31,7 @@ interface IBlogPage {
     post: IBlogPagePost;
 }
 
-function BlogPage({ post }: IBlogPage) {
+function BlogDetailPage({ post }: IBlogPage) {
     return (
         <Layout>
             <article className="bg-black0 text-white c-page-blog">
@@ -42,7 +42,8 @@ function BlogPage({ post }: IBlogPage) {
                             'max-w-screen-xl mx-auto',
                             'pt-32 pb-8 2xl:pt-48 text-white',
                             'u-text-shadow'
-                        )}>
+                        )}
+                    >
                         <HeroTitle className="text-white">
                             {post.title}
                         </HeroTitle>
@@ -99,7 +100,8 @@ function BlogPage({ post }: IBlogPage) {
                             'lg:block lg:col-span-4',
                             'xl:col-span-4',
                             '2xl:col-span-3'
-                        )}>
+                        )}
+                    >
                         <div className="sticky top-36 mt-20 bg-black2 py-3 px-4 rounded-md">
                             <div className="text-2xl leading-none">
                                 {post.title}
@@ -217,4 +219,4 @@ export const getStaticProps: GetStaticProps<IProps, IParams> = async ({
     };
 };
 
-export default BlogPage;
+export default BlogDetailPage;
