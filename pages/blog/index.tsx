@@ -30,7 +30,8 @@ function BlogIndexPage({ posts }: IBlogIndex) {
                                 'md:grid md:grid-cols-2 md:gap-x-12 md:gap-y-24',
                                 'lg:grid lg:grid-cols-3 lg:gap-x-12',
                                 'xl:gap-x-16'
-                            )}>
+                            )}
+                        >
                             {posts.map((post, index) => (
                                 <BlogPostCard post={post} key={index} />
                             ))}

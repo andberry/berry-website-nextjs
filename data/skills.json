@@ -20,11 +20,10 @@
         ]
     },
     {
-        "title": "JS",
+        "title": "JavaScript",
         "skills": [
             "React",
             "Next.js",
-            "Storybook",
             "Framer Motion",
             "Eleventy (11ty)",
             "Vue.js",
@@ -51,6 +50,7 @@
     {
         "title": "Dev Tools",
         "skills": [
+            "Storybook",
             "Git",
             "DDEV",
             "Lando",
@@ -59,12 +59,11 @@
         ]
     },
     {
-        "title": "DevOps / OS",
+        "title": "OS",
         "skills": [
             "macOS",
             "Linux",
-            "Linux-based server setup",
-            "Internet network infrastructure and services (IP, DNS, Web, Email)"
+            "Linux-based server setup (LAMP stack, nodejs)"
         ]
     },
     {
