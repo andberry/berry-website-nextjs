@@ -76,7 +76,7 @@ export default function Homepage() {
                         contentPosition="right"
                         title="Front-End Developer | Front-End Engineer | Web Developer">
                         <p>
-                            I&apos;m <strong>Andrea Berardi</strong>,
+                            I&apos;m <strong>Andrea Berardi (Berry)</strong>,
                             <br />
                             an italian{' '}
                             <strong>
