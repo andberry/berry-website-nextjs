@@ -202,7 +202,7 @@ export default function Header() {
                                 .map((item, index) => (
                                     <div
                                         key={index}
-                                        className="h-[2px] bg-lime"
+                                        className="h-[2px] bg-purple"
                                     />
                                 ))}
                         </div>
