@@ -134,7 +134,7 @@ export default function Header() {
                                         href={item.href}
                                         className={classnames(
                                             'py-3 px-6 text-3xl',
-                                            'text-lg font-light uppercase font-exo2',
+                                            'text-lg font-light uppercase font-exo2 text-black0 dark:text-white',
                                             'hover:text-purple inline-block'
                                         )}
                                     >
@@ -166,7 +166,7 @@ export default function Header() {
                                         <Link
                                             href={item.link}
                                             className={classnames(
-                                                'py-1 px-2 block text-white',
+                                                'py-1 px-2 block dark:text-white text-black0',
                                                 'hover:text-lime'
                                             )}
                                         >
