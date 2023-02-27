@@ -63,7 +63,8 @@ export default function Homepage() {
                                         <span className="u-text-gradientbg-2">
                                             front-end developer
                                         </span>
-                                        , and I love building usable, neat and
+                                        <br />
+                                        and I love building usable, neat and
                                         engaging web projects.
                                         {/*
                                     <div className="opacity-0 intro__text__mask absolute inset-0 bg-lime z-20 transform -translate-x-full"></div>
@@ -87,8 +88,7 @@ export default function Homepage() {
                                 {' '}
                                 Front-End Developer / Front-End Engineer / Web
                                 Developer
-                            </strong>
-                            <br />
+                            </strong>{' '}
                             with 10+ years of experience, currently located in
                             Halifax, NS, Canada.
                         </p>
