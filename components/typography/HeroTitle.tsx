@@ -18,7 +18,8 @@ export const HeroTitle = <C extends React.ElementType>({
                 'text-hero3 leading-[0.85] font-exo2 font-extrabold',
                 className
             )}
-            {...rest}>
+            {...rest}
+        >
             {children}
         </Tag>
     );
