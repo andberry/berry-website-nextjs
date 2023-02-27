@@ -30,15 +30,18 @@ export default function Homepage() {
                             'text-white',
                             'relative',
                             'min-h-screen flex items-center md:py-32'
-                        )}>
+                        )}
+                    >
                         <Container>
                             <div className="lg:grid lg:grid-cols-6 lg:gap-8">
                                 <div
                                     className={classNames(
                                         'w-1/3 mx-auto py-12',
                                         'lg:w-full lg:px-4 lg:py-0',
-                                        'lg:col-start-1 lg:col-span-1'
-                                    )}>
+                                        'lg:col-start-1 lg:col-span-1',
+                                        'max-lg:hidden'
+                                    )}
+                                >
                                     <Image
                                         src={ImageBerryTwitter}
                                         alt="Berry Image"
@@ -74,7 +77,8 @@ export default function Homepage() {
 
                     <Text
                         contentPosition="right"
-                        title="Front-End Developer | Front-End Engineer | Web Developer">
+                        title="Front-End Developer | Front-End Engineer | Web Developer"
+                    >
                         <p>
                             I&apos;m <strong>Andrea Berardi (Berry)</strong>,
                             <br />
@@ -120,7 +124,8 @@ export default function Homepage() {
 
                     <Text
                         contentPosition="right"
-                        title="What am I working on right now?">
+                        title="What am I working on right now?"
+                    >
                         <p>
                             Currently having fun working on a pretty big
                             headless Next.js/Drupal project, using React,
