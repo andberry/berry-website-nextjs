@@ -11,9 +11,7 @@ import { motion, Variant } from 'framer-motion';
 import { useState } from 'react';
 import { easings } from '../../utils/easings';
 import { VscClose as CloseIcon } from 'react-icons/vsc';
-import { MdLightbulbOutline as LightIcon } from 'react-icons/md';
-import { MdDarkMode as DarkIcon } from 'react-icons/md';
-import { useTheme } from 'next-themes';
+import { ThemeSwitch } from '../ThemeSwitch';
 
 const motionVariantMenu: { [key: string]: Variant } = {
     hide: {
@@ -50,7 +48,6 @@ const motionVariantMenuItem: { [key: string]: Variant } = {
 export default function Header() {
     const router = useRouter();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const { theme, setTheme } = useTheme();
 
     return (
         <header
@@ -182,26 +179,7 @@ export default function Header() {
                     </div>
 
                     {/* dark/light mode */}
-                    <div className="flex gap-2 text-2xl">
-                        {theme === 'dark' && (
-                            <button
-                                onClick={() => {
-                                    setTheme('light');
-                                }}
-                            >
-                                <LightIcon />
-                            </button>
-                        )}
-                        {theme === 'light' && (
-                            <button
-                                onClick={() => {
-                                    setTheme('dark');
-                                }}
-                            >
-                                <DarkIcon />
-                            </button>
-                        )}
-                    </div>
+                    <ThemeSwitch />
 
                     {/* mobile menu hamburgher */}
                     <button
