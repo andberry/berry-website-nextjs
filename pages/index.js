@@ -59,12 +59,12 @@ export default function Homepage() {
                                             Berry!
                                         </span>
                                         <br />
-                                        I&apos;m a senior{' '}
+                                        I&apos;m a{' '}
                                         <span className="u-text-gradientbg-2">
                                             front-end developer
                                         </span>
-                                        , and I love building usable and clean
-                                        web projects.
+                                        , and I love building usable, neat and
+                                        engaging web projects.
                                         {/*
                                     <div className="opacity-0 intro__text__mask absolute inset-0 bg-lime z-20 transform -translate-x-full"></div>
                                     <div className="intro__text__mask--2 absolute bottom-0 left-0 h-0 w-3 bg-lime300 z-30"></div>
