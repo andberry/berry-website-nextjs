@@ -54,7 +54,7 @@ export const SkillsGroup = ({ title, skills, id }: ISkillsGroup) => {
                     <motion.li
                         variants={motionVariantSkill}
                         custom={id + index}
-                        className="py-2 font-extralight"
+                        className="py-2 dark:font-extralight font-normal"
                         key={index}
                     >
                         {item}

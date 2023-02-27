@@ -18,7 +18,7 @@ interface IBlogIndex {
 function BlogIndexPage({ posts }: IBlogIndex) {
     return (
         <Layout>
-            <article className="bg-black0 text-white2">
+            <article className="dark:bg-black0 dark:text-white2 bg-white text-black0">
                 <HeaderTitle>
                     Berry&apos;s{' '}
                     <span className="u-text-gradientbg-2">Blog</span>

@@ -31,7 +31,8 @@ export const Text = ({
                 'lg:py-20',
                 '2xl:py-24',
                 extraClasses
-            )}>
+            )}
+        >
             <Container>
                 <div className="lg:grid lg:grid-cols-8 lg:gap-8">
                     <div
@@ -48,7 +49,8 @@ export const Text = ({
                                 'lg:col-start-4 lg:col-span-5 2xl:col-span-4 2xl:col-start-4':
                                     contentPosition === 'right',
                             }
-                        )}>
+                        )}
+                    >
                         {title && (
                             <div className="relative">
                                 {dropcap && (
@@ -64,7 +66,9 @@ export const Text = ({
                                 </FancyTitle>
                             </div>
                         )}
-                        <div className="text-white2">{children}</div>
+                        <div className="dark:text-white2 text-black">
+                            {children}
+                        </div>
                     </div>
                 </div>
             </Container>

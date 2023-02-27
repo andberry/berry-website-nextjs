@@ -34,17 +34,17 @@ interface IBlogPage {
 function BlogDetailPage({ post }: IBlogPage) {
     return (
         <Layout>
-            <article className="bg-black0 text-white c-page-blog">
+            <article className="dark:bg-black0 dark:text-white bg-white text-black c-page-blog">
                 <header>
                     <div
                         className={classNames(
                             'u-container',
                             'max-w-screen-xl mx-auto',
-                            'pt-32 pb-8 2xl:pt-48 text-white',
-                            'u-text-shadow'
+                            'pt-32 pb-8 2xl:pt-48 dark:text-white text-black',
+                            'dark:u-text-shadow'
                         )}
                     >
-                        <HeroTitle className="text-white">
+                        <HeroTitle className="dark:text-white text-black0">
                             {post.title}
                         </HeroTitle>
 
@@ -80,11 +80,11 @@ function BlogDetailPage({ post }: IBlogPage) {
                             'xl:col-span-7 xl:col-start-2',
                             '2xl:col-span-6 2xl:col-start-3',
                             '3xl:col-span-6 3xl:col-start-3',
-                            'text-white2',
+                            'dark:text-white2 text-black',
                             'prose xl:prose-xl prose-lg',
                             'prose-neutral',
-                            'prose-blockquote:text-white prose-a:text-white',
-                            'prose-strong:text-white2',
+                            'prose-blockquote:text-white prose-a:dark:text-white prose-a:text-black',
+                            'prose-strong:dark:text-white2 text-black',
                             'prose-headings:text-purple',
                             'prose-headings:relative',
                             'prose-headings:before:block prose-headings:before:absolute prose-headings:before:-left-4 prose-headings:before:top-0 prose-headings:before:content-[""] prose-headings:before:w-1 prose-headings:before:h-full prose-headings:before:bg-lime',
@@ -102,7 +102,7 @@ function BlogDetailPage({ post }: IBlogPage) {
                             '2xl:col-span-3'
                         )}
                     >
-                        <div className="sticky top-36 mt-20 bg-black2 py-3 px-4 rounded-md">
+                        <div className="sticky top-36 mt-20 dark:bg-black2 bg-white2 py-3 px-4 rounded-md">
                             <div className="text-2xl leading-none">
                                 {post.title}
                             </div>

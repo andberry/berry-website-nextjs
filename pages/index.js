@@ -24,10 +24,10 @@ export default function Homepage() {
             </Head>
 
             <Layout>
-                <article className="bg-black0 shadow-purple shadow-sm">
+                <article className="dark:bg-black0 bg-white">
                     <section
                         className={classNames(
-                            'text-white',
+                            'dark:text-white text-black',
                             'relative',
                             'min-h-screen flex items-center md:py-32'
                         )}

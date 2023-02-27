@@ -11,6 +11,9 @@ import { motion, Variant } from 'framer-motion';
 import { useState } from 'react';
 import { easings } from '../../utils/easings';
 import { VscClose as CloseIcon } from 'react-icons/vsc';
+import { MdLightbulbOutline as LightIcon } from 'react-icons/md';
+import { MdDarkMode as DarkIcon } from 'react-icons/md';
+import { useTheme } from 'next-themes';
 
 const motionVariantMenu: { [key: string]: Variant } = {
     hide: {
@@ -47,13 +50,16 @@ const motionVariantMenuItem: { [key: string]: Variant } = {
 export default function Header() {
     const router = useRouter();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { theme, setTheme } = useTheme();
 
     return (
         <header
             className={classnames(
                 'fixed top-0 left-0 w-full z-50',
-                'p-5 md:px-12',
-                'bg-black0 text-white text-sm'
+                'text-sm',
+                'p-5 md:px-12 xl:py-2',
+                'dark:bg-black0 dark:text-white',
+                'bg-white text-black'
             )}
         >
             <div className="flex items-center justify-between">
@@ -152,7 +158,7 @@ export default function Header() {
                 </div>
 
                 {/* right side */}
-                <div className="relative z-50">
+                <div className="relative z-50 flex gap-4">
                     {/* social icons */}
                     <div className="hidden lg:flex lg:items-center gap-4">
                         <IconContext.Provider value={{ size: '1.6rem' }}>
@@ -173,6 +179,28 @@ export default function Header() {
                                 );
                             })}
                         </IconContext.Provider>
+                    </div>
+
+                    {/* dark/light mode */}
+                    <div className="flex gap-2 text-2xl">
+                        {theme === 'dark' && (
+                            <button
+                                onClick={() => {
+                                    setTheme('light');
+                                }}
+                            >
+                                <LightIcon />
+                            </button>
+                        )}
+                        {theme === 'light' && (
+                            <button
+                                onClick={() => {
+                                    setTheme('dark');
+                                }}
+                            >
+                                <DarkIcon />
+                            </button>
+                        )}
                     </div>
 
                     {/* mobile menu hamburgher */}

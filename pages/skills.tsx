@@ -65,7 +65,7 @@ export default function SkillsPage({
     const [skillsAreInViewport, setSkillsAreInViewport] = useState(false);
     return (
         <Layout>
-            <article className="bg-black0 text-white">
+            <article className="dark:bg-black0 dark:text-white bg-white text-black">
                 <HeaderTitle>
                     <span className="u-text-gradientbg">Skills</span> and Tech
                 </HeaderTitle>
@@ -92,7 +92,7 @@ export default function SkillsPage({
                     </Container>
                 </motion.section>
 
-                <section className="py-4 xl:py-24 text-white2">
+                <section className="py-4 xl:py-24 dark:text-white2 text-black0">
                     <Container>
                         <div className="py-12 max-w-screen-md mx-auto">
                             <FancyTitle className="text-center text-2xl mb-8">
