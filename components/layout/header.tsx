@@ -97,7 +97,7 @@ export default function Header() {
                                     <Link
                                         href={item.href}
                                         className={classnames(
-                                            'py-3 px-6 text-3xl',
+                                            'py-3 px-6 text-xl',
                                             'md:text-4xl font-light uppercase font-exo2',
                                             'hover:text-purple inline-block'
                                         )}
@@ -209,7 +209,7 @@ export default function Header() {
 
                         <div
                             className={classnames(
-                                'w-9 h-5 absolute inset-x-0 top-0 text-2xl flex items-center justify-center transition-all duration-200',
+                                'w-9 h-5 absolute inset-x-0 top-0 text-3xl flex items-center justify-center transition-all duration-200 text-lime',
                                 {
                                     'opacity-100 scale-100': isMobileMenuOpen,
                                 },
