@@ -78,7 +78,7 @@ export default function Header() {
                         animate={isMobileMenuOpen ? 'show' : 'hide'}
                         initial="hide"
                         className={classnames(
-                            'fixed inset-0 bg-black0',
+                            'fixed inset-0 dark:bg-black0 bg-white',
                             'flex flex-col justify-center',
                             '-translate-x-full',
                             'lg:hidden'
@@ -184,15 +184,12 @@ export default function Header() {
                     {/* mobile menu hamburgher */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className={classnames(
-                            'relative block pb-5',
-                            'lg:hidden'
-                        )}
+                        className={classnames('relative block', 'lg:hidden')}
                     >
                         {/* hamburgher */}
                         <div
                             className={classnames(
-                                'w-8 h-5 flex flex-col justify-between transition-all duration-200',
+                                'w-7 h-5 flex flex-col justify-between transition-all duration-200 overflow-hidden',
                                 {
                                     'opacity-100 translate-x-0':
                                         !isMobileMenuOpen,
@@ -205,17 +202,28 @@ export default function Header() {
                         >
                             {Array(3)
                                 .fill(0)
-                                .map((item, index) => (
-                                    <div
-                                        key={index}
-                                        className="h-[2px] bg-purple"
-                                    />
-                                ))}
+                                .map((item, index) => {
+                                    const tAmount = [
+                                        '',
+                                        'translate-x-[4px]',
+                                        'translate-x-[8px]',
+                                    ];
+                                    return (
+                                        <div
+                                            key={index}
+                                            className={classnames(
+                                                'h-[2px] dark:bg-purple bg-black0',
+                                                `${tAmount[index]}`
+                                            )}
+                                        />
+                                    );
+                                })}
                         </div>
 
+                        {/* Close icon */}
                         <div
                             className={classnames(
-                                'w-9 h-5 absolute inset-x-0 top-0 text-3xl flex items-center justify-center transition-all duration-200 text-lime',
+                                'w-9 h-5 absolute inset-x-0 top-0 text-4xl flex items-center justify-center transition-all duration-200 dark:text-lime text-black0',
                                 {
                                     'opacity-100 scale-100': isMobileMenuOpen,
                                 },
@@ -225,34 +233,6 @@ export default function Header() {
                             )}
                         >
                             <CloseIcon />
-                        </div>
-
-                        {/* Menu label */}
-                        <div
-                            className={classnames(
-                                'absolute inset-x-0 bottom-0 transition-all duration-100 ease-linear leading-none text-xs text-center',
-                                {
-                                    'opacity-100 translate-y-0':
-                                        !isMobileMenuOpen,
-                                },
-                                { 'opacity-0': isMobileMenuOpen }
-                            )}
-                        >
-                            Menu
-                        </div>
-
-                        {/* MeClosenu label */}
-                        <div
-                            className={classnames(
-                                'absolute inset-x-0 bottom-0 transition-all duration-100 ease-linear leading-none text-xs text-center',
-                                {
-                                    'opacity-100 translate-y-0':
-                                        isMobileMenuOpen,
-                                },
-                                { 'opacity-0': !isMobileMenuOpen }
-                            )}
-                        >
-                            Close
                         </div>
                     </button>
                 </div>
