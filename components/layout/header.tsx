@@ -135,7 +135,7 @@ export default function Header() {
                                         className={classnames(
                                             'py-3 px-6 text-3xl',
                                             'text-lg font-light uppercase font-exo2 text-black0 dark:text-white',
-                                            'hover:text-purple inline-block'
+                                            'dark:hover:text-lime hover:text-purple inline-block'
                                         )}
                                     >
                                         <div className="relative pb-1">
@@ -167,7 +167,7 @@ export default function Header() {
                                             href={item.link}
                                             className={classnames(
                                                 'py-1 px-2 block dark:text-white text-black0',
-                                                'hover:text-lime'
+                                                'hover:text-purple dark:hover:text-lime'
                                             )}
                                         >
                                             <Icon />
