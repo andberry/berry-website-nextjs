@@ -8,7 +8,8 @@ export default function Document() {
             <body
                 className={classNames({
                     'debug-screens': process.env.NODE_ENV === 'development',
-                })}>
+                })}
+            >
                 <Main />
                 <NextScript />
             </body>

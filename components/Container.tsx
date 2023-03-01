@@ -11,9 +11,10 @@ export const Container = ({
     return (
         <div
             className={classNames(
-                'px-8 md:px-12 mx-auto max-w-screen-2xl',
+                'px-5 md:px-12 mx-auto max-w-screen-2xl',
                 className
-            )}>
+            )}
+        >
             {children}
         </div>
     );

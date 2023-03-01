@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    darkMode: 'class',
     content: [
         './pages/**/*.{js,ts,jsx,tsx}',
         './components/**/*.{js,ts,jsx,tsx}',
@@ -7,7 +8,7 @@ module.exports = {
     theme: {
         extend: {
             fontSize: {
-                hero3: 'clamp(2.5rem, 7vw, 7rem)',
+                hero3: 'clamp(2.8rem, 7vw, 7rem)',
                 huge: '14vw',
             },
         },
@@ -45,7 +46,7 @@ module.exports = {
         },
     },
     plugins: [
-        require('tailwindcss-debug-screens'),
+        // require('tailwindcss-debug-screens'),
         require('@tailwindcss/typography'),
     ],
 };

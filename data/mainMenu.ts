@@ -1,4 +1,9 @@
-export const mainMenu = [
+interface IMenuItem {
+    href: string;
+    title: string;
+}
+
+export const mainMenu: IMenuItem[] = [
     {
         href: '/',
         title: 'Home',

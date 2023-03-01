@@ -35,6 +35,10 @@
 }
 
 @layer utilities {
+    .u-debug {
+        @apply border border-[tomato];
+    }
+
     .u-container {
         @apply px-8;
     }

@@ -8,17 +8,18 @@ export const HeroTitle = <C extends React.ElementType>({
     ...rest
 }: {
     as?: C;
-    children: React.ReactElement | string;
+    children: React.ReactNode | string;
 } & React.ComponentPropsWithoutRef<C>) => {
     const Tag = as ?? 'h1';
 
     return (
         <Tag
             className={classNames(
-                'text-hero3 leading-[0.85] font-exo2 font-semibold',
+                'text-hero3 leading-[0.85] font-exo2 font-extrabold',
                 className
             )}
-            {...rest}>
+            {...rest}
+        >
             {children}
         </Tag>
     );

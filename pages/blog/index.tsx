@@ -9,44 +9,35 @@ import { BlogPostCard } from '../../components/BlogCard/BlogCard';
 import { getPlaiceholder } from 'plaiceholder';
 import { IBlogCardPost } from '../../components/BlogCard/BlogCard';
 import { getBlogPostAbsoluteUrl, getSemanticHtmlDate } from '../../utils/blog';
+import { HeaderTitle } from '../../components/HeaderTitle';
 
 interface IBlogIndex {
     posts: IBlogCardPost[];
 }
 
-function BlogIndex({ posts }: IBlogIndex) {
+function BlogIndexPage({ posts }: IBlogIndex) {
     return (
         <Layout>
-            <article className="bg-black0 text-white2">
-                <header
-                    className={classNames(
-                        'pt-32 pb-16 2xl:pt-48 2xl:pb-24 text-white'
-                    )}>
-                    <Container>
-                        <HeroTitle>
-                            <>
-                                Berry&apos;s{' '}
-                                <span className="u-text-gradientbg-2">
-                                    Blog
-                                </span>
-                            </>
-                        </HeroTitle>
-                    </Container>
-                </header>
-                <div className={classNames('pb-16')}>
+            <article className="dark:bg-black0 dark:text-white2 bg-white text-black0">
+                <HeaderTitle>
+                    Berry&apos;s{' '}
+                    <span className="u-text-gradientbg-2">Blog</span>
+                </HeaderTitle>
+                <section className={classNames('pb-16')}>
                     <Container>
                         <div
                             className={classNames(
                                 'md:grid md:grid-cols-2 md:gap-x-12 md:gap-y-24',
                                 'lg:grid lg:grid-cols-3 lg:gap-x-12',
                                 'xl:gap-x-16'
-                            )}>
+                            )}
+                        >
                             {posts.map((post, index) => (
                                 <BlogPostCard post={post} key={index} />
                             ))}
                         </div>
                     </Container>
-                </div>
+                </section>
             </article>
         </Layout>
     );
@@ -98,4 +89,4 @@ export async function getStaticProps() {
     };
 }
 
-export default BlogIndex;
+export default BlogIndexPage;
