@@ -13,7 +13,7 @@ const motionVariantGroup: { [key: string]: Variant } = {
 };
 
 const motionVariantTitle: { [key: string]: Variant } = {
-    hide: {},
+    hide: { opacity: 0, y: -15 },
     show: (i) => ({
         opacity: 1,
         y: 0,
@@ -27,15 +27,15 @@ const motionVariantTitle: { [key: string]: Variant } = {
 };
 
 const motionVariantSkill: { [key: string]: Variant } = {
-    hide: {},
+    hide: { opacity: 0, x: -15 },
     show: (i) => ({
         opacity: 1,
         x: 0,
         transition: {
             type: 'tween',
-            duration: 0.3,
+            duration: 0.6,
             ease: easings.easeOutQuart,
-            delay: i * 0.05 + 0.9,
+            delay: i * 0.05 + 0.6,
         },
     }),
 };
@@ -48,7 +48,7 @@ export const SkillsGroup = ({ title, skills, id }: ISkillsGroup) => {
                 custom={id}
                 className={classNames(
                     'text-3xl font-extrabold mb-3 font-exo2',
-                    'lg:opacity-0 lg:translate-y-2'
+                    'lg:opacity-0 lg:-translate-y-44'
                 )}
             >
                 {title}
@@ -60,7 +60,7 @@ export const SkillsGroup = ({ title, skills, id }: ISkillsGroup) => {
                         custom={id + index}
                         className={classNames(
                             'py-2 dark:font-extralight font-normal',
-                            'lg:opacity-0 lg:-translate-x-5'
+                            'lg:opacity-0 lg:-translate-x-44'
                         )}
                         key={index}
                     >

@@ -85,7 +85,13 @@ export default function SkillsPage({
                             : undefined
                     }
                     variants={motionVariantSection}
-                    animate={skillsAreInViewport ? 'show' : 'hide'}
+                    animate={
+                        skillsAreInViewport
+                            ? 'show'
+                            : isDesktop
+                            ? 'hide'
+                            : undefined
+                    }
                 >
                     <Container>
                         <div className="md:grid md:grid-cols-2 lg:grid-cols-4 gap-12">
