@@ -4,8 +4,10 @@ import { FancyTitle } from '../components/typography/FancyTitle';
 import Layout from '../components/layout/layout';
 import { HeaderTitle } from '../components/HeaderTitle';
 import { SkillsGroup } from '../components/SkillsGroup';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, Variant } from 'framer-motion';
+import { useMediaQuery } from 'usehooks-ts';
+
 import {
     SiTypescript,
     SiJavascript,
@@ -50,19 +52,24 @@ import { settings } from '../data/settings';
 import fs from 'node:fs';
 import { ISkillsData } from '../types/skills';
 
-const motionVariantSection: { [key: string]: Variant } = {
-    hide: {},
-    show: {
-        transition: { staggerChildren: 0.1 },
-    },
-};
-
 export default function SkillsPage({
     skillsData,
 }: {
     skillsData: ISkillsData;
 }) {
     const [skillsAreInViewport, setSkillsAreInViewport] = useState(false);
+    const [isDesktop, setIsDesktop] = useState<boolean | undefined>(undefined);
+    const isDesktopMQ = useMediaQuery('(min-width: 1024px)');
+
+    useEffect(() => {
+        setIsDesktop(isDesktopMQ);
+    }, [isDesktopMQ]);
+
+    const motionVariantSection: { [key: string]: Variant } = {
+        hide: {},
+        show: {},
+    };
+
     return (
         <Layout>
             <article className="dark:bg-black0 dark:text-white bg-white text-black">
@@ -71,11 +78,13 @@ export default function SkillsPage({
                 </HeaderTitle>
 
                 <motion.section
-                    viewport={{ amount: 0.5, margin: '0px 0px -200px 0px' }}
-                    onViewportEnter={() => setSkillsAreInViewport(true)}
-                    onViewportLeave={() => setSkillsAreInViewport(false)}
+                    viewport={{ amount: 0.5, margin: '0px 0px -100px 0px' }}
+                    onViewportEnter={
+                        isDesktop
+                            ? () => setSkillsAreInViewport(true)
+                            : undefined
+                    }
                     variants={motionVariantSection}
-                    initial="hide"
                     animate={skillsAreInViewport ? 'show' : 'hide'}
                 >
                     <Container>
