@@ -124,7 +124,6 @@ export const BlogPostCard = ({ post }: IBlogCard) => {
             initial="base"
             animate={hoverOnCard ? 'hover' : 'base'}
         >
-            <div>{isDesktop ? 'Is Desktop' : 'Is Mobile'}</div>
             <Link href={post.url} className="block">
                 {post.heroImage && (
                     <div
