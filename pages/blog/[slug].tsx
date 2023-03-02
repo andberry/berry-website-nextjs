@@ -122,24 +122,6 @@ function BlogDetailPage({ post }: IBlogPage) {
                                     ))}
                                 </div>
                             )}
-                            {/*
-                            <motion.button
-                                className="mt-8 border border-lime px-4 py-2"
-                                variants={motionVariantsCta}
-                                whileHover="hover">
-                                <Link
-                                    href={settings.blog.baseUrl}
-                                    className="inline-block">
-                                    <span className="flex gap-2 items-center">
-                                        <motion.span
-                                            variants={motionVariantsCtaArrow}>
-                                            <ArrowIcon />
-                                        </motion.span>
-                                        Back to Blog Index
-                                    </span>
-                                </Link>
-                            </motion.button>
-                            */}
 
                             <ArrowButton
                                 arrowSide="left"
