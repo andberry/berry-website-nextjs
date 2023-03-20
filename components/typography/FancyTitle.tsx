@@ -19,7 +19,8 @@ export const FancyTitle = <C extends React.ElementType>({
                 'u-text-gradientbg',
                 className
             )}
-            {...rest}>
+            {...rest}
+        >
             {children}
         </Tag>
     );
