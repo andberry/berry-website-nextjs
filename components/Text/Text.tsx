@@ -25,7 +25,7 @@ export const Text = ({
             className={classnames(
                 'c-text',
                 'relative',
-                'font-exo2 font-normal text-xl leading-8 xl:leading-10',
+                'font-light text-xl leading-8 xl:leading-10',
                 'py-6',
                 'md:py-12',
                 'lg:py-20',

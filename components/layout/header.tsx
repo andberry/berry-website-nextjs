@@ -134,7 +134,7 @@ export default function Header() {
                                         href={item.href}
                                         className={classnames(
                                             'py-3 px-6 text-3xl',
-                                            'text-lg font-light uppercase font-exo2 text-black0 dark:text-white',
+                                            'text-lg font-light uppercase text-black0 dark:text-white',
                                             'dark:hover:text-lime hover:text-purple inline-block'
                                         )}
                                     >

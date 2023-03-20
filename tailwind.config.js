@@ -26,6 +26,7 @@ module.exports = {
             mulish: ['Mulish', 'sans-serif'],
             baumans: ['Baumans', 'cursive'],
             galada: ['Galada', 'cursive'],
+            signika: ['Signika Negative', 'sans-serif'],
             major: ['Major Mono Display', 'monospace'],
         },
         colors: {
