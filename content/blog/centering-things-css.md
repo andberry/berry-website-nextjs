@@ -27,7 +27,6 @@ If we're going to center a block element, it's sufficient to set margin-left and
 ```css
 .content {
     width: 75%;
-    /* max-width: 75%; */
     margin: 0 auto;
 }
 ```
