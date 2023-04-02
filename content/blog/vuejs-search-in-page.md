@@ -20,67 +20,71 @@ Imaging a page (eg. built from a CMS) with a list of documents and we want to gi
 
 This is the final JavaScript code:
 
-<pre><code class="js">
+```javascript
 var searchApp = new Vue({
-	el: "#searchapp",
+    el: '#searchapp',
 
-	data: {
-		documents: [],
-		searchString: "",
-		searchResultsVisible: true
-	},
+    data: {
+        documents: [],
+        searchString: '',
+        searchResultsVisible: true,
+    },
 
-	mounted: function () {
-		docsEls = document.querySelectorAll(".list__item");
-		for (const item of Array.from(docsEls)) {
-			this.documents.push({
-				text: item.querySelector(".list__item__description").innerHTML
-			});
-		}
+    mounted: function () {
+        docsEls = document.querySelectorAll('.list__item');
+        for (const item of Array.from(docsEls)) {
+            this.documents.push({
+                text: item.querySelector('.list__item__description').innerHTML,
+            });
+        }
 
-		document.documentElement.addEventListener("click", this.handleClickOnBody);
+        document.documentElement.addEventListener(
+            'click',
+            this.handleClickOnBody
+        );
 
-		document.addEventListener("keyup", this.handleKeyUp);
-	},
+        document.addEventListener('keyup', this.handleKeyUp);
+    },
 
-	computed: {
-		activeSearchString: function () {
-			return this.searchString.length >= 3 ? this.searchString : "";
-		},
+    computed: {
+        activeSearchString: function () {
+            return this.searchString.length >= 3 ? this.searchString : '';
+        },
 
-		searchResults: function () {
-			if (this.activeSearchString !== "") {
-				return this.documents.filter(
-					(d) =>
-						d.text.toLowerCase().includes(this.activeSearchString.toLowerCase()) ==
-						true
-				);
-			} else {
-				return [];
-			}
-		}
-	},
+        searchResults: function () {
+            if (this.activeSearchString !== '') {
+                return this.documents.filter(
+                    (d) =>
+                        d.text
+                            .toLowerCase()
+                            .includes(this.activeSearchString.toLowerCase()) ==
+                        true
+                );
+            } else {
+                return [];
+            }
+        },
+    },
 
-	methods: {
-		handleClickOnBody: function (e) {
-			const target = e.target;
-			const searchEl = this.$refs.searchEl;
+    methods: {
+        handleClickOnBody: function (e) {
+            const target = e.target;
+            const searchEl = this.$refs.searchEl;
 
-			if (target !== searchEl && !searchEl.contains(target)) {
-				this.searchResultsVisible = false;
-			} else {
-				this.searchResultsVisible = true;
-			}
-		},
+            if (target !== searchEl && !searchEl.contains(target)) {
+                this.searchResultsVisible = false;
+            } else {
+                this.searchResultsVisible = true;
+            }
+        },
 
-		handleKeyUp: function (e) {
-			if (e.key === "Escape") {
-				this.searchResultsVisible = false;
-			}
-		}
-	}
+        handleKeyUp: function (e) {
+            if (e.key === 'Escape') {
+                this.searchResultsVisible = false;
+            }
+        },
+    },
 });
-
-</code></pre>
+```
 
 <a class="link--styled" href="https://codepen.io/aberry/pen/XWKvWBL" target="_blank">Here you can find a complete CodePen</a>
