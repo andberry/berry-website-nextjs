@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;600;700;800&family=Courier+Prime&&family=Mulish:wght@200;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;600;700;800&family=Courier+Prime&&family=Mulish:wght@200;300;400;700;900&family=Signika+Negative:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baumans&family=Galada&family=Major+Mono+Display&display=swap');
 
 @tailwind base;
@@ -87,10 +87,40 @@
             animateTextGradientBg;
     }
 
+    .u-text-gradientbg--light {
+        background: linear-gradient(
+            30deg,
+            rgba(126, 47, 219, 1) 40%,
+            rgba(250, 102, 255, 1) 60%
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        background-size: 130% auto;
+        background-position: 0% 50%;
+        animation: 3s ease-in 1s infinite alternate running
+            animateTextGradientBg;
+    }
+
     .u-text-gradientbg-2 {
         background: linear-gradient(
             30deg,
             rgba(172, 255, 62, 1) 25%,
+            rgba(126, 47, 219, 1) 40%
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        background-size: 130% auto;
+        background-position: 0% 50%;
+        animation: 3s ease-in 2s infinite alternate running
+            animateTextGradientBg;
+    }
+
+    .u-text-gradientbg-2--light {
+        background: linear-gradient(
+            30deg,
+            rgba(250, 102, 255, 1) 25%,
             rgba(126, 47, 219, 1) 40%
         );
         background-clip: text;

@@ -5,9 +5,9 @@ import matter from 'gray-matter';
 import classNames from 'classnames';
 import { HeroTitle } from '../../components/typography/HeroTitle';
 import { Container } from '../../components/Container';
-import { BlogPostCard } from '../../components/BlogCard/BlogCard';
+import { BlogPostCard } from '../../components/BlogPostCard/BlogPostCard';
 import { getPlaiceholder } from 'plaiceholder';
-import { IBlogCardPost } from '../../components/BlogCard/BlogCard';
+import { IBlogCardPost } from '../../components/BlogPostCard/BlogPostCard';
 import { getBlogPostAbsoluteUrl, getSemanticHtmlDate } from '../../utils/blog';
 import { HeaderTitle } from '../../components/HeaderTitle';
 
@@ -21,7 +21,9 @@ function BlogIndexPage({ posts }: IBlogIndex) {
             <article className="dark:bg-black0 dark:text-white2 bg-white text-black0">
                 <HeaderTitle>
                     Berry&apos;s{' '}
-                    <span className="u-text-gradientbg-2">Blog</span>
+                    <span className="dark:u-text-gradientbg-2 u-text-gradientbg-2--light">
+                        Blog
+                    </span>
                 </HeaderTitle>
                 <section className={classNames('pb-16')}>
                     <Container>

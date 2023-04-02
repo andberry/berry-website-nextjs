@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -11,6 +11,7 @@ import { easings } from '../../utils/easings';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfigFile from '../../tailwind.config';
 const tailwindConfig: any = resolveConfig(tailwindConfigFile);
+import { useMediaQuery } from 'usehooks-ts';
 
 export interface IBlogCardPost {
     url: string;
@@ -107,15 +108,22 @@ const motionVariantsCtaArrow: { [key: string]: Variant } = {
 
 export const BlogPostCard = ({ post }: IBlogCard) => {
     const [hoverOnCard, setHoverOnCard] = useState(false);
+    const isDesktopMQ = useMediaQuery('(min-width: 1024px)');
+    const [isDesktop, setIsDesktop] = useState<boolean | undefined>(undefined);
+
+    useEffect(() => {
+        setIsDesktop(isDesktopMQ);
+    }, [isDesktopMQ]);
 
     return (
         <motion.article
             className="pb-24 md:pb-0 flex flex-col justify-between"
-            onHoverStart={() => setHoverOnCard(true)}
-            onHoverEnd={() => setHoverOnCard(false)}
+            onHoverStart={isDesktop ? () => setHoverOnCard(true) : undefined}
+            onHoverEnd={isDesktop ? () => setHoverOnCard(false) : undefined}
             variants={motionVariantsCard}
             initial="base"
-            animate={hoverOnCard ? 'hover' : 'base'}>
+            animate={hoverOnCard ? 'hover' : 'base'}
+        >
             <Link href={post.url} className="block">
                 {post.heroImage && (
                     <div
@@ -123,10 +131,12 @@ export const BlogPostCard = ({ post }: IBlogCard) => {
                             'aspect-video overflow-hidden',
                             'rounded-md',
                             'duration-200 transition-all ease-linear'
-                        )}>
+                        )}
+                    >
                         <motion.div
                             variants={motionVariantsImage}
-                            className="w-full h-full relative">
+                            className="w-full h-full relative"
+                        >
                             <Image
                                 src={`${settings.blog.heroBasedir}/${post.heroImage}`}
                                 alt=""
@@ -147,7 +157,8 @@ export const BlogPostCard = ({ post }: IBlogCard) => {
                     />
                     <motion.h2
                         variants={motionVariantsTitle}
-                        className="u-fancy-tile mt-2 text-3xl font-medium leading-none">
+                        className="u-fancy-tile mt-2 text-3xl font-medium leading-none"
+                    >
                         {post.title}
                     </motion.h2>
                 </div>

@@ -9,6 +9,8 @@ import {
     HiOutlineArrowNarrowRight,
 } from 'react-icons/hi';
 import classNames from 'classnames';
+import { useMediaQuery } from 'usehooks-ts';
+import { useEffect, useState } from 'react';
 
 const motionVariantsCta: { [key: string]: Variant } = {
     base: {},
@@ -56,18 +58,27 @@ export const ArrowButton = ({
     text,
     arrowSide = 'right',
 }: IArrowButton) => {
+    const isDesktopMQ = useMediaQuery('(min-width: 1024px)');
+    const [isDesktop, setIsDesktop] = useState<boolean | undefined>(undefined);
+
+    useEffect(() => {
+        setIsDesktop(isDesktopMQ);
+    }, [isDesktopMQ]);
+
     return (
         <motion.button
             className={classNames('mt-8')}
             variants={motionVariantsCta}
-            whileHover="hover">
+            whileHover={isDesktop ? 'hover' : undefined}
+        >
             <Link
                 href={url}
                 className={classNames(
                     'inline-block py-2',
                     { 'pl-4 pr-2': arrowSide === 'right' },
                     { 'pr-4 pl-2 ': arrowSide === 'left' }
-                )}>
+                )}
+            >
                 <span className="flex gap-2 items-center">
                     {arrowSide === 'left' && (
                         <motion.span variants={motionVariantsCtaArrowLeft}>

@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { motion, Variant } from 'framer-motion';
 import { easings } from '../utils/easings';
 interface ISkillsGroup {
@@ -12,7 +13,7 @@ const motionVariantGroup: { [key: string]: Variant } = {
 };
 
 const motionVariantTitle: { [key: string]: Variant } = {
-    hide: { y: 10, opacity: 0 },
+    hide: { opacity: 0, y: -15 },
     show: (i) => ({
         opacity: 1,
         y: 0,
@@ -26,15 +27,15 @@ const motionVariantTitle: { [key: string]: Variant } = {
 };
 
 const motionVariantSkill: { [key: string]: Variant } = {
-    hide: { x: -20, opacity: 0 },
+    hide: { opacity: 0, x: -15 },
     show: (i) => ({
         opacity: 1,
         x: 0,
         transition: {
             type: 'tween',
-            duration: 0.3,
+            duration: 0.6,
             ease: easings.easeOutQuart,
-            delay: i * 0.05 + 0.9,
+            delay: i * 0.05 + 0.6,
         },
     }),
 };
@@ -45,7 +46,10 @@ export const SkillsGroup = ({ title, skills, id }: ISkillsGroup) => {
             <motion.h3
                 variants={motionVariantTitle}
                 custom={id}
-                className="text-3xl font-extrabold mb-3 font-exo2"
+                className={classNames(
+                    'text-3xl font-extrabold mb-3 font-exo2',
+                    'lg:opacity-0 lg:-translate-y-44'
+                )}
             >
                 {title}
             </motion.h3>
@@ -54,7 +58,10 @@ export const SkillsGroup = ({ title, skills, id }: ISkillsGroup) => {
                     <motion.li
                         variants={motionVariantSkill}
                         custom={id + index}
-                        className="py-2 dark:font-extralight font-normal"
+                        className={classNames(
+                            'py-2 dark:font-extralight font-normal',
+                            'lg:opacity-0 lg:-translate-x-44'
+                        )}
                         key={index}
                     >
                         {item}
