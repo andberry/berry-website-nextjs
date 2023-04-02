@@ -108,10 +108,7 @@ export default function Header() {
                                         <div className="relative pb-1">
                                             <span>{item.title}</span>
                                             {isActiveUrl(item.href, router) && (
-                                                <motion.div
-                                                    layoutId="mainNavActive"
-                                                    className="absolute bottom-0 left-0 w-full h-1 bg-purple"
-                                                />
+                                                <div className="absolute bottom-0 left-0 w-full h-1 bg-purple" />
                                             )}
                                         </div>
                                     </Link>
@@ -141,10 +138,7 @@ export default function Header() {
                                         <div className="relative pb-1">
                                             <span>{item.title}</span>
                                             {isActiveUrl(item.href, router) && (
-                                                <motion.div
-                                                    layoutId="mainNavActive"
-                                                    className="absolute bottom-0 left-0 w-full h-1 bg-purple"
-                                                />
+                                                <div className="absolute bottom-0 left-0 w-full h-1 bg-purple" />
                                             )}
                                         </div>
                                     </Link>
