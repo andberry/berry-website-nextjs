@@ -20,9 +20,6 @@ If we're going to center an inline element, it's just as simple as using the goo
 .container {
     text-align: center;
 }
-.content {
-    /* display: inline; */
-}
 ```
 
 If we're going to center a block element, it's sufficient to set margin-left and margin-right to auto to it, but don't forget to set a width (or max-width) otherwise content will have the same width of container and it won't be possibile to see its centered position:
