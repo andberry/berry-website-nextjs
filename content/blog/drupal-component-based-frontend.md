@@ -60,33 +60,32 @@ This is my way of implementing Component-Based Frontend Dev in Drupal.
 
 This is an example of the markup of the hero component:
 
-<pre><code class="twig">
-&lt;section class="c-hero js-hero"&gt;
-    &lt;div class="c-hero__bgimage" style="background-image: url('{{ image }}')" &gt;&lt;/div&gt;
-    &lt;div class="c-hero__overlay"&gt;&lt;/div&gt;
-    &lt;div class="c-hero__content"&gt;
-        &lt;div class="o-container o-grid"&gt;
+```twig
+<section class="c-hero js-hero">
+    <div class="c-hero__bgimage" style="background-image: url('{{ image }}')" ></div>
+    <div class="c-hero__overlay"></div>
+    <div class="c-hero__content">
+        <div class="o-container o-grid">
             {% if title %}
-                &lt;h1 class="c-hero__title"&gt;{{ title }}&lt;/h1&gt;
+                <h1 class="c-hero__title">{{ title }}</h1>
             {% endif %}
 
             {% if text %}
-                &lt;div class="c-hero__text"&gt;
+                <div class="c-hero__text">
                     {{ text }}
-                &lt;/div&gt;
+                </div>
             {% endif %}
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/section&gt;
-
-</code></pre>
+        </div>
+    </div>
+</section>
+```
 
 As you can see this component is expecting to receive just 3 parameters/data/props: **image, title and text**.
 I'm able to use the markup I want with all the classes and methodologies / architectures I want: I'm using BEM, with namespaces and in particular in this case I'm using the 'js-hero' class to target this block from JavaScript.
 
 This is an excerpt of the related Scss file:
 
-<pre><code class="css">
+```css
 .c-hero {
     padding-top: $space_xl;
     padding-bottom: $space_2xl;
@@ -107,9 +106,7 @@ This is an excerpt of the related Scss file:
     @include fs1();
     color: $color_white;
 }
-
-
-</code></pre>
+```
 
 ## Connecting Components to Drupal
 
@@ -117,13 +114,13 @@ And now the most complicated part: passing data coming from Drupal to components
 
 Inside each specific Drupal Twig file I simply go with a Twig include statement passing an object containing relevant data coming from fields:
 
-<pre><code class="twig">
+```twig
 {% include '@berrytheme/components/c-hero.html.twig' with {
     'title': content.field_title,
     'text': content.field_text,
     'image': content.field_image.0
 }%}
-</code></pre>
+```
 
 The "specific Drupal Twig file" depends on how you structured the content, but this can be easily done for:
 
@@ -141,19 +138,19 @@ So, this is my short list of code snippets to access various fields type data:
 
 ### simple text field (plain or long/html)
 
-<pre><code class="twig">
+```twig
 {{ content.field_content }}
-</code></pre>
+```
 
 ### single image field
 
-<pre><code class="twig">
+```twig
 {{ content.field_image.0 }}
-</code></pre>
+```
 
 ### building a custom markup for a multi image field (pay attention: you have to use node.field_gallery and not content.field_gallery)
 
-<pre><code class="twig">
+```twig
     {% set cdata = [] %}
     {% for item in node.field_gallery %}
         {% set cdata = cdata|merge([
@@ -169,33 +166,33 @@ So, this is my short list of code snippets to access various fields type data:
         'title': content.field_title,
         'items': cdata
     }%}
-</code></pre>
+```
 
 And then inside c-gallery.html.twig
 
-<pre><code class="twig">
+```twig
     {% for item in items %}
-        &lt;a href="{{ item.link }}" class="c-gallery__link"&gt;
-            &lt;img src="{{ item.image_src }}" alt="{{ item.image_alt }}" class="c-gallery__img"&gt;
-        &lt;/a&gt;
+        <a href="{{ item.link }}" class="c-gallery__link">
+            <img src="{{ item.image_src }}" alt="{{ item.image_alt }}" class="c-gallery__img">
+        </a>
     {% endfor %}
-</code></pre>
+```
 
 ### url and text from link field type
 
-<pre><code class="twig">
-&lt;a href="{{ content.field_link.0['#url'] }}" class="c-button"&gt;
+```twig
+<a href="{{ content.field_link.0['#url'] }}" class="c-button">
     {{ content.field_link.0['#title'] }}
-&lt;/a&gt;
-</code></pre>
+</a>
+```
 
 ### File field with description
 
-<pre><code class="twig">
+```twig
 {% set file_url = file_url(node.field_file.0.entity.uri.value) %}
 {% set file_desc = (node.field_file.0.description) ? node.field_file.0.description : node.field_file.0.entity.filename.value %}
-&lt;a href="{{ file_url }}" class="c-button--light"&gt;{{ file_desc }}&lt;/a&gt;
-</code></pre>
+<a href="{{ file_url }}" class="c-button--light">{{ file_desc }}</a>
+```
 
 ### Interesting links
 

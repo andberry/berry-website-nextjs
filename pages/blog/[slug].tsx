@@ -16,6 +16,12 @@ import { ParsedUrlQuery } from 'querystring';
 import { BlogPostDate } from '../../components/BlogPostDate';
 import { motion, Variant } from 'framer-motion';
 import { ArrowButton } from '../../components/ArrowButton';
+// import 'highlight.js/styles/atom-one-dark.css';
+// import 'highlight.js/styles/monokai-sublime.css';
+import 'highlight.js/styles/gradient-dark.css';
+import hljs from 'highlight.js';
+
+import { useEffect } from 'react';
 
 interface IBlogPagePost {
     title: string;
@@ -168,7 +174,25 @@ export const getStaticProps: GetStaticProps<IProps, IParams> = async ({
         return { notFound: true };
     }
 
-    const md = new MarkdownIt();
+    const md = new MarkdownIt({
+        html: true,
+        highlight: function (str, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+                try {
+                    return (
+                        '<pre class="hljs"><code>' +
+                        hljs.highlight(str, {
+                            language: lang,
+                            ignoreIllegals: true,
+                        }).value +
+                        '</code></pre>'
+                    );
+                } catch (__) {}
+            }
+
+            return ''; // use external default escaping
+        },
+    });
     const { data, content } = matter(
         fs.readFileSync(`${settings.blog.contentDir}/${slug}.md`)
     );

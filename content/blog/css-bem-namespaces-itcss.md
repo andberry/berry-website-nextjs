@@ -32,13 +32,13 @@ Definitely a way to save time when deciding class names.
 
 Here is an example of BEM applied to a button
 
-```html[button.html]
+```html
 <a class="button button--big">
     <span class="button__icon"></span>
 </a>
 ```
 
-```css[button.css]
+```css
 .button {
     display: inline-flex;
     justify-content: center;

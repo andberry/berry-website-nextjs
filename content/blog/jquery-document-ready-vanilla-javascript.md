@@ -20,9 +20,8 @@ We can achieve the same result with vanilla js and Web APIs, in particular using
 The tricky part is considering that when the browser runs our code it may have already loaded and parsed the DOM, so the best practice is to first check the document.readyState variable.
 
 Here is the code:
-<code><pre class="javascript">
 
-```
+```javascript
 /*
     https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event
     - The DOMContentLoaded event fires when the initial HTML document has been completely loaded and parsed,
@@ -35,7 +34,7 @@ Here is the code:
     - completeThe document and all sub-resources have finished loading. The state indicates that the load event is about to fire.
 */
 
-function doOnDocumentLoaded () {
+function doOnDocumentLoaded() {
     loaderInit();
     carouseslInit();
 }
@@ -46,7 +45,5 @@ if (document.readyState === 'loading') {
     doOnDocumentLoaded();
 }
 ```
-
-</pre></code>
 
 [And here is my gist](https://gist.github.com/andberry/c6995034eb85e04b141b6a7746ed63a1)

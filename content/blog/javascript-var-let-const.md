@@ -24,7 +24,7 @@ We use <strong>let</strong> to declare bindings that could chage during executio
 
 Pay attention: this means that identifiers declared with const cannot be re-assigned, but in case of objects we can change its attributes after binding:
 
-<pre><code class="javascript">
+```javascript
 const str = "foobar"
 str = "barfoo"
 Uncaught TypeError: Assignment to constant variable.
@@ -35,7 +35,7 @@ Uncaught TypeError: Assignment to constant variable.
 obj.foo = 'foo3'
 obj
 { foo: 'foo3', bar: 'bar' }
-</code></pre>
+```
 
 ## Scoping
 
@@ -47,14 +47,14 @@ On the other end, the scope of variables declared with <strong>const</strong> an
 
 Variables declared outside functions (aka in the top level of program) with <strong>var</strong> become properties of the global object (window), while variables declared with <strong>let</strong> or <strong>const</strong> don't.
 
-<pre><code class="javascript">
-var foo = "foo";
-let bar = "bar";
-window.foo
-"foo"
-window.bar
-undefined
-</code></pre>
+```javascript
+var foo = 'foo';
+let bar = 'bar';
+window.foo;
+('foo');
+window.bar;
+undefined;
+```
 
 ## Conclusion
 

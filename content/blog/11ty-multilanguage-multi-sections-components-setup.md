@@ -52,7 +52,7 @@ Nunjucks is a template language for JavaScript with syntax pretty similar to Twi
 
 With Nunjucks the best way to write component based templates is to use the `macro` stratement.
 
-```twig[macros.njk]
+```twig
     {% macro field(name, value='', type='text') %}
         <div class="field">
             <input type="{{ type }}" name="{{ name }}" value="{{ value | escape }}" />
@@ -97,22 +97,20 @@ As far as I know there's no official plugin for this, and as usual in JavaScript
 -   Create one directory for each language you want to support ("en", "fr"): it will contain all templates for that language
 -   Set the locale using a custom "lang" Front Matter key in templates: it will be used for getting the right content from multilanguage globals data files (labels, header, footer, navigation, etc...)
 
-```md[/src/fr/index.md]
-{
-    ---
-    layout: layouts/pages/home-fr.njk
-    title: Homepage FR
-    permalink: /fr/
-    lang: fr
-    ---
-}
+```md
+---
+layout: layouts/pages/home-fr.njk
+title: Homepage FR
+permalink: /fr/
+lang: fr
+---
 ```
 
 ### Translating global content (static labels, navigations, etc.)
 
 Structure your globals data files with multiple keys (one per language) and code your templates and partials to include the relavanta data only
 
-```twig[/src/_data/globals.json]
+```twig
     {
         "en": {
             "websitename": "Berry is the best",
@@ -126,7 +124,7 @@ Structure your globals data files with multiple keys (one per language) and code
     }
 ```
 
-```twig[/src/_includes/layouts/base/navMain.njk]
+```twig
     {% set navMain = navMain[lang] if lang else navMain['en'] %}
 
     <nav id="main-nav" class="c-nav-main u-show-on-desktop">

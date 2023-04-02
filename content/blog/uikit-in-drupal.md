@@ -18,8 +18,9 @@ Components list ranges from a sort of utility classes like "Align" or "Padding" 
 
 The simplest way to start using UIkit in Drupal is to simply install the theme https://www.drupal.org/project/uikit
 
-<code><pre class="shell">
-composer require 'drupal/uikit:^3.15'</pre></code>
+```bash
+composer require 'drupal/uikit:^3.15'
+```
 
 You get the all the framework css and js loaded and also a useful bunch of views styles/formatters.
 
@@ -27,7 +28,8 @@ You get the all the framework css and js loaded and also a useful bunch of views
 
 A second way to integrate UIkit in your theme is to load it from CND defining a library in your theme.
 Something like this (pay attention that this file must follow YAML 2 spaces indentation and that uikit library has to be included in .info.yml file):
-<code><pre class="YAML">
+
+```YAML
 global-css:
 version: 1.0
 css:
@@ -44,8 +46,8 @@ js:
 css:
 base:
 "//cdn.jsdelivr.net/npm/uikit@3.7.3/dist/css/uikit.min.css": { type: external, minified: true }
+```
 
-</pre></code>
 You get the all the framework css and js loaded in your theme
 
 ## 3) Install with npm and integrate in scss/js
@@ -53,26 +55,34 @@ You get the all the framework css and js loaded in your theme
 If you have a workflow tool or task runner in place I guess you'll prefer to install UIkit with npm and then integrate the scss and js parts.
 
 Install framework with NPM
-<code><pre class="shell">
-npm install -P uikit</pre></code>
+
+```bash
+npm install -P uikit
+```
 
 CSS/Scss: where to put these code snippets actually depends on how you structured your scss files,
 but the concept is that you need first to include variables and mixins (eg. \_settings.scss)
-<code><pre class="scss">
-@import "uikit/src/scss/variables";
-@import "uikit/src/scss/mixins";</pre></code>
+
+```scss
+@import 'uikit/src/scss/variables';
+@import 'uikit/src/scss/mixins';
+```
 
 and the you can include the CSS for the components you're using (eg. \_components.scss):
-<code><pre class="scss">
-@import "uikit/src/scss/components/visibility";
-@import "uikit/src/scss/components/accordion";
-@import "uikit/src/scss/components/animation";</pre></code>
+
+```scss
+@import 'uikit/src/scss/components/visibility';
+@import 'uikit/src/scss/components/accordion';
+@import 'uikit/src/scss/components/animation';
+```
 
 JavaScript: simply import the framework (eg. in app.js)
-<code><pre class="scss">
+
+```scss
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
-UIkit.use(Icons);</pre></code>
+UIkit.use(Icons);
+```
 
 This way you load all the JavaScript part of the framework but only the style files you're actually using in your frontend,
 and you can easily get the framework css and js files bundles with your codebase (reducing the number of browser requests)
