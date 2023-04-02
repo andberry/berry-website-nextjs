@@ -37,6 +37,7 @@ module.exports = {
             black2: '#333',
             purple: '#7e2fdb',
             lime: '#acff3e',
+            pink: '#FA66FF',
         },
         transitionTimingFunction: {
             linear: 'linear',

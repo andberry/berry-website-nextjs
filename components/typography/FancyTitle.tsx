@@ -16,7 +16,7 @@ export const FancyTitle = <C extends React.ElementType>({
         <Tag
             className={classNames(
                 'leading-none uppercase font-extrabold',
-                'u-text-gradientbg',
+                'dark:u-text-gradientbg u-text-gradientbg--light',
                 className
             )}
             {...rest}

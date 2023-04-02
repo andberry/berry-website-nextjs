@@ -55,17 +55,21 @@ export default function Homepage() {
                                             Hi,{' '}
                                         </span>
                                         I&apos;m{' '}
-                                        <span className="u-text-gradientbg">
+                                        <span className="dark:u-text-gradientbg u-text-gradientbg--light">
                                             Berry!
                                         </span>
                                         <br />
                                         I&apos;m a{' '}
-                                        <span className="u-text-gradientbg-2">
-                                            front-end developer
-                                        </span>
+                                        <span className="dark:u-text-gradientbg-2 u-text-gradientbg-2--light">
+                                            front-end
+                                        </span>{' '}
+                                        developer
                                         <br />
-                                        and I love building usable, neat and
-                                        engaging web projects.
+                                        and I love building{' '}
+                                        <span className="dark:u-text-gradientbg-2 u-text-gradientbg-2--light">
+                                            usable, neat
+                                        </span>{' '}
+                                        and engaging web projects.
                                         {/*
                                     <div className="opacity-0 intro__text__mask absolute inset-0 bg-lime z-20 transform -translate-x-full"></div>
                                     <div className="intro__text__mask--2 absolute bottom-0 left-0 h-0 w-3 bg-lime300 z-30"></div>

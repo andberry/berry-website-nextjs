@@ -21,7 +21,9 @@ function BlogIndexPage({ posts }: IBlogIndex) {
             <article className="dark:bg-black0 dark:text-white2 bg-white text-black0">
                 <HeaderTitle>
                     Berry&apos;s{' '}
-                    <span className="u-text-gradientbg-2">Blog</span>
+                    <span className="dark:u-text-gradientbg-2 u-text-gradientbg-2--light">
+                        Blog
+                    </span>
                 </HeaderTitle>
                 <section className={classNames('pb-16')}>
                     <Container>

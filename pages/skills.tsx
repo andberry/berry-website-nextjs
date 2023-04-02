@@ -74,7 +74,10 @@ export default function SkillsPage({
         <Layout>
             <article className="dark:bg-black0 dark:text-white bg-white text-black">
                 <HeaderTitle>
-                    <span className="u-text-gradientbg">Skills</span> and Tech
+                    <span className="dark:u-text-gradientbg u-text-gradientbg--light">
+                        Skills
+                    </span>{' '}
+                    and Tech
                 </HeaderTitle>
 
                 <motion.section
